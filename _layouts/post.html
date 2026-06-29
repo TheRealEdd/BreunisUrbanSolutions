@@ -19,26 +19,44 @@
     </main>
 
     <script>
-        // 1. Get the filename from the URL (e.g., post.html?file=my-first-post.md)
+        // Get the slug from the URL (e.g. post.html?slug=my-first-post)
         const urlParams = new URLSearchParams(window.location.search);
-        const fileName = urlParams.get('file');
+        const slug = urlParams.get("slug");
 
-        if (fileName) {
-            // 2. Fetch the raw markdown file from your GitHub repository folder
-            fetch(`{{ site.baseurl }}/posts/${fileName}`)
+        const postContainer = document.getElementById("post-content");
+
+        if (!slug) {
+            postContainer.innerHTML = "<h2>No post specified.</h2>";
+        } else {
+
+            // Build the path to the markdown file
+            const postUrl = `{{ site.baseurl }}/posts/${slug}.md`;
+
+            console.log("Fetching:", postUrl);
+
+            fetch(postUrl)
                 .then(response => {
-                    if (!response.ok) throw new Error('Post not found');
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
                     return response.text();
                 })
-                .then(markdownText => {
-                    // 3. Clean up the "Front Matter" (the title/date block at the top)
-                    const cleanMarkdown = markdownText.replace(/^---[\s\S]*?---/, '');
-                    
-                    // 4. Convert Markdown to HTML and inject it into the page
-                    document.getElementById('post-content').innerHTML = marked.parse(cleanMarkdown);
+                .then(markdown => {
+
+                    // Remove YAML front matter
+                    const content = markdown.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, "");
+
+                    // Convert Markdown to HTML
+                    postContainer.innerHTML = marked.parse(content);
                 })
-                .catch(err => {
-                    document.getElementById('post-content').innerHTML = `<h2>Oops! Post not found.</h2>`;
+                .catch(error => {
+                    console.error(error);
+
+                    postContainer.innerHTML = `
+                        <h2>Oops! Post not found.</h2>
+                        <p>Tried to load:</p>
+                        <code>${postUrl}</code>
+                    `;
                 });
         }
     </script>
