@@ -1,22 +1,22 @@
 media:
-  input: "media/blog"
-  output: "/media/blog"
+  input: "images/blog"
+  output: "/images/blog"
 
 content:
   - name: "posts"
     label: "Blog Posts"
     type: "collection"
-    path: _posts
+    path: "_posts"
     filename: "{year}-{month}-{day}-{slug}"
     extension: "md"
     format: "frontmatter-markdown"
     fields:
       - name: "title"
-        label: "Post Titel"
+        label: "Post Title"
         type: "string"
         required: true
       - name: "date"
-        label: "Post Datum"
+        label: "Publish Date"
         type: "date"
         required: true
       - name: "layout"
@@ -24,9 +24,9 @@ content:
         type: "hidden"
         default: "post"
       - name: "description"
-        label: "Omschrijving"
+        label: "Short Summary"
         type: "text"
       - name: "body"
         label: "Blog Content"
-        type: "rich-text"
+        type: "markdown"
         required: true
