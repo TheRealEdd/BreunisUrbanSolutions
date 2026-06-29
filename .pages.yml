@@ -1,41 +1,32 @@
-{
-  "media": {
-    "input": "images/blog",
-    "output": "/images/blog"
-  },
-  "content": [
-    {
-      "name": "posts",
-      "label": "Blog Posts",
-      "type": "collection",
-      "path": "posts",
-      "extension": "md",
-      "format": "frontmatter-markdown",
-      "fields": [
-        {
-          "name": "title",
-          "label": "Post Title",
-          "type": "string",
-          "required": true
-        },
-        {
-          "name": "date",
-          "label": "Publish Date",
-          "type": "date",
-          "required": true
-        },
-        {
-          "name": "description",
-          "label": "Short Summary",
-          "type": "text"
-        },
-        {
-          "name": "body",
-          "label": "Blog Content",
-          "type": "markdown",
-          "required": true
-        }
-      ]
-    }
-  ]
-}
+media:
+  input: images/blog
+  output: /images/blog
+
+content:
+  - name: posts
+    label: Blog Posts
+    type: collection
+    path: _posts
+    filename: "{year}-{month}-{day}-{slug}"
+    extension: md
+    format: frontmatter-markdown
+    fields:
+      - name: title
+        label: Post Title
+        type: string
+        required: true
+      - name: date
+        label: Publish Date
+        type: date
+        required: true
+      - name: layout
+        label: Layout
+        type: hidden
+        default: post
+      - name: description
+        label: Short Summary
+        type: text
+      - name: body
+        label: Blog Content
+        type: markdown
+        required: true
