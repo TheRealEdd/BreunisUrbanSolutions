@@ -1,6 +1,6 @@
 media:
-  input: "images/blog"
-  output: "/images/blog"
+  input: "media/blog"
+  output: "/media/blog"
 
 content:
   - name: "posts"
