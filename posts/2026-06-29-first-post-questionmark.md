@@ -5,3 +5,5 @@ You might have a great concept for a post, but when it comes time to write it, i
 If you’re having trouble getting the gears turning for your blog, then keep reading. This article will teach you everything you need to know about writing your next blog post and give a few insightful examples to encourage and inspire you.
 
 ![bus logo](/images/blog/BUS_logo_zonderachtergrond_hoge_resolutie-1.png)
+
+Did this display an image?^
