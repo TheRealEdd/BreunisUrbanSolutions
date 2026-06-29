@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Post</title>
+    <!-- We load a tiny tool called Marked to convert Markdown to HTML -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        /* Your standard website styling goes here */
+        .blog-container { max-width: 800px; margin: 0 auto; padding: 20px; font-family: sans-serif; }
+        .blog-container img { max-width: 100%; height: auto; } /* Keeps images from breaking layout */
+    </style>
+</head>
+<body>
+
+    <main class="blog-container">
+        <a href="blog.html">← Back to Blog</a>
+        <article id="post-content">Loading post...</article>
+    </main>
+
+    <script>
+        // 1. Get the filename from the URL (e.g., post.html?file=my-first-post.md)
+        const urlParams = new URLSearchParams(window.location.search);
+        const fileName = urlParams.get('file');
+
+        if (fileName) {
+            // 2. Fetch the raw markdown file from your GitHub repository folder
+            fetch(`./posts/${fileName}`)
+                .then(response => {
+                    if (!response.ok) throw new Error('Post not found');
+                    return response.text();
+                })
+                .then(markdownText => {
+                    // 3. Clean up the "Front Matter" (the title/date block at the top)
+                    const cleanMarkdown = markdownText.replace(/^---[\s\S]*?---/, '');
+                    
+                    // 4. Convert Markdown to HTML and inject it into the page
+                    document.getElementById('post-content').innerHTML = marked.parse(cleanMarkdown);
+                })
+                .catch(err => {
+                    document.getElementById('post-content').innerHTML = `<h2>Oops! Post not found.</h2>`;
+                });
+        }
+    </script>
+</body>
+</html>

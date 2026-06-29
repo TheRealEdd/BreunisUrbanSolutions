@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page.title }} | {{ site.name }}</title>
+    <link rel="stylesheet" href="/style.css"> <!-- Your existing CSS -->
+</head>
+<body>
+
+    <nav>
+        <!-- Your existing navigation bar links go here -->
+        <a href="/">Home</a> | <a href="/blog.html">Blog</a>
+    </nav>
+
+    <main>
+        <!-- Jekyll will inject the unique page or post content right here -->
+        {{ content }}
+    </main>
+
+    <footer>
+        <p>© 2026 {{ site.name }}</p>
+    </footer>
+
+</body>
+</html>

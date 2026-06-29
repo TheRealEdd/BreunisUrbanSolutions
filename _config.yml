@@ -1,0 +1,8 @@
+name: Testing Config YML Site Name
+permalink: /blog/:title/
+
+# This tells Jekyll where to look for your blog posts
+collections:
+  posts:
+    output: true
+    permalink: /blog/:title/
