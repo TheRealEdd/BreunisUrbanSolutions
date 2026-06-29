@@ -1,7 +1,7 @@
 name: Testing Config YML Site Name
-permalink: /blog/:title/
+url: "https://therealedd.github.io"
+baseurl: "/testingGround"  # <--- CRITICAL: Include the forward slash before your exact repo name
 
-# This tells Jekyll where to look for your blog posts
 collections:
   posts:
     output: true
