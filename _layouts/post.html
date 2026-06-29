@@ -21,7 +21,9 @@
             {{ page.date | date: "%B %d, %Y" }}
         </p>
 
-        {{ content }}
+        <div class="entry-content">
+            {{ content | replace: 'src="/media/', 'src="' | replace: 'src="', 'src="' | prepend: site.baseurl | replace: 'src="', 'src="/media/' }}
+        </div>
 
     </main>
 </body>
