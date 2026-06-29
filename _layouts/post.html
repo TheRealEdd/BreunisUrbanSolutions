@@ -13,52 +13,16 @@
 </head>
 <body>
 
-    <main class="blog-container">
-        <a href="{{ site.baseurl }}/blog.html">← Back to Blog</a>
-        <article id="post-content">Loading post...</article>
+    <main class="post-content">
+
+        <h1>{{ page.title }}</h1>
+
+        <p class="post-date">
+            {{ page.date | date: "%B %d, %Y" }}
+        </p>
+
+        {{ content }}
+
     </main>
-
-    <script>
-        // Get the slug from the URL (e.g. post.html?slug=my-first-post)
-        const urlParams = new URLSearchParams(window.location.search);
-        const slug = urlParams.get("slug");
-
-        const postContainer = document.getElementById("post-content");
-
-        if (!slug) {
-            postContainer.innerHTML = "<h2>No post specified.</h2>";
-        } else {
-
-            // Build the path to the markdown file
-            const postUrl = `{{ site.baseurl }}/_posts/${slug}.md`;
-
-            console.log("Fetching:", postUrl);
-
-            fetch(postUrl)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP ${response.status}`);
-                    }
-                    return response.text();
-                })
-                .then(markdown => {
-
-                    // Remove YAML front matter
-                    const content = markdown.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, "");
-
-                    // Convert Markdown to HTML
-                    postContainer.innerHTML = marked.parse(content);
-                })
-                .catch(error => {
-                    console.error(error);
-
-                    postContainer.innerHTML = `
-                        <h2>Oops! Post not found.</h2>
-                        <p>Tried to load:</p>
-                        <code>${postUrl}</code>
-                    `;
-                });
-        }
-    </script>
 </body>
 </html>
