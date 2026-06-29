@@ -6,7 +6,7 @@ content:
   - name: "posts"
     label: "Blog Posts"
     type: "collection"
-    path: "_posts"
+    path: _posts
     filename: "{year}-{month}-{day}-{slug}"
     extension: "md"
     format: "frontmatter-markdown"
