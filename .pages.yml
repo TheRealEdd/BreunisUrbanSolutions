@@ -6,7 +6,7 @@ content:
   - name: posts
     label: Blog Posts
     type: collection
-    path: posts
+    path: _posts
     filename: "{year}-{month}-{day}-{slug}.md"
     format: yaml-frontmatter
     fields:
