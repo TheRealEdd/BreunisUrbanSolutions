@@ -12,11 +12,11 @@ content:
     format: "frontmatter-markdown"
     fields:
       - name: "title"
-        label: "Post Title"
+        label: "Post Titel"
         type: "string"
         required: true
       - name: "date"
-        label: "Publish Date"
+        label: "Post Datum"
         type: "date"
         required: true
       - name: "layout"
@@ -24,9 +24,9 @@ content:
         type: "hidden"
         default: "post"
       - name: "description"
-        label: "Short Summary"
+        label: "Omschrijving"
         type: "text"
       - name: "body"
         label: "Blog Content"
-        type: "markdown"
+        type: "rich-text"
         required: true
