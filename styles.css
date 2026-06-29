@@ -1,0 +1,561 @@
+/* Colours  */
+:root {
+    --blue: #2b74ff;
+    --yellow: #fedd59;
+    --white: #ffffff;
+    --cream: #fffcf2;
+    --charcoal: #333333;
+    --light: #f7f9fc;
+
+    --ticker-speed: 25s; /* Lower = faster */
+    --logo-height: 60px;
+    --logo-gap: 6rem;
+}
+
+/* Fonts */
+@font-face {
+    font-family: "Cooper Black";
+    src: url("./fonts/Cooper-Black.TTF") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("./fonts/Inter-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Passion One";
+    src: url("./fonts/PassionOne-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", Arial, sans-serif;
+    color: var(--charcoal);
+    background: var(--cream);
+    line-height: 1.6;
+    border: 1.5rem solid var(--blue);
+    border-style: none solid;
+    padding: 1.5rem;
+}
+
+h1, h2 {
+    font-family: "Cooper Black", serif;
+}
+
+.page-button {
+    padding: 0 1.5rem;
+    background-color: var(--white);
+    border-radius: 999px;
+    border: solid 0.4rem var(--charcoal);
+    transition: background-color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.page-button a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: fit-content;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--charcoal);
+    font-family: "Passion One", sans-serif;
+    transition: color 0.2s ease;
+    font-size: 2rem;
+}
+
+.page-button:hover {
+    background-color: var(--charcoal);
+    a {
+        color: var(--white);
+    }
+    img {
+        filter: brightness(500%);
+    }
+}
+
+.text-icon {
+    height: 0.5em;
+    width: auto;
+    display: inline-block;
+}
+
+
+/* INTRO ANIMATIE */
+#intro-modal {
+    position: fixed;
+    inset: 0;
+    background: var(--blue);
+    z-index: 9999;
+    overflow: hidden;
+}
+
+#scene {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#bus-stop {
+    position: absolute;
+    height: 40vh;
+
+    right: 25vw;
+    bottom: 20vh;
+}
+
+#woman {
+    position: absolute;
+    height: 20vh;
+    opacity: 1;
+
+    right: 60vw;
+    bottom: 20vh;
+}
+
+#bus {
+    position: absolute;
+    z-index: -1;
+    height: 35vh;
+
+    bottom: 20vh;
+    left: -100vw;
+}
+
+#intro-text {
+    position: absolute;
+
+    top: 15vh;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 3.6rem;
+    text-align: center;
+    color: white;
+}
+
+.text-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    opacity: 0;
+}
+
+/* NAV */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem 5%;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo img{
+    height: 6rem;
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 4rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-family: "Passion One", sans-serif;
+    color: var(--blue);
+    font-weight: 500;
+    font-size: 2rem;
+    position: relative;
+}
+
+.nav-links li:not(:last-child) a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.4rem;
+    bottom: -0.4rem;
+    left: 0;
+    background-color: var(--charcoal);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links li:not(:last-child) a:hover::after {
+    transform: scaleX(1);
+}
+
+#nav-contact-btn {
+    display: inline-block;
+    color: var(--charcoal);
+    background: var(--yellow);
+    text-decoration: none;
+    padding: 0 1rem;
+    border-radius: 999px;
+    font-weight: 600;
+    letter-spacing: 0.02rem;
+    box-shadow: -0.4rem 0.4rem 0 var(--charcoal);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#nav-contact-btn:hover {
+    transform: translate(0.2rem, -0.2rem);
+    box-shadow: -0.6rem 0.6rem 0 var(--charcoal);
+}
+
+#nav-contact-btn:active {
+    transform: translate(-0.2rem, 0.2rem);
+    box-shadow: -0.2rem 0.2rem 0 var(--charcoal);
+}
+
+/* HERO */
+
+.hero {
+    padding: 6rem 5%;
+}
+
+.hero-content {
+    text-align: left;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: repeat(1, 1fr);
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 4vw, 6rem);
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+#hero-text-highlight {
+    color: var(--blue);
+}
+
+.hero img {
+    max-width: calc(100% - 4rem);
+    max-height: 100%;
+}
+
+/* ROUTE START */
+#line-start {
+    border: solid 0.5rem var(--charcoal);
+}
+
+#line-start a {
+    font-size: 3rem;
+}
+
+
+#route-start {
+    display: grid;
+    grid-template-columns: 1fr auto 45vw;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+}
+
+.partners-carousel {
+    width: 45vw;
+    text-align: center;
+    margin-left: auto; /* pushes ticker to the right */
+}
+
+
+/* LOGO TICKER */
+
+.logoTicker {
+    width: 45vw;
+    overflow: hidden;
+    position: relative;
+    padding: 1rem;
+}
+
+.logoTrack {
+    display: flex;
+    align-items: center;
+    gap: var(--logo-gap);
+    width: max-content;
+    filter: grayscale(100%);
+    animation: tickerScroll var(--ticker-speed) linear infinite;
+}
+
+.logoTrack img {
+    height: var(--logo-height);
+    width: auto;
+    flex-shrink: 0;
+
+    /* Optional */
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
+.logoTrack img:hover {
+    opacity: 1;
+}
+
+.logoTicker::before,
+.logoTicker::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 80px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.logoTicker::before {
+    left: 0;
+    background: linear-gradient(
+        to right,
+        white,
+        transparent
+    );
+}
+
+.logoTicker::after {
+    right: 0;
+    background: linear-gradient(
+        to left,
+        white,
+        transparent
+    );
+}
+
+@keyframes tickerScroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-50% + 3rem));
+    }
+}
+
+
+
+
+/* PROJECTS */
+
+
+.projects {
+    position: relative;
+    padding: 2rem 8%;
+    max-width: 2000px;
+    margin: auto;
+}
+
+#route-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -5;
+    overflow: visible;
+}
+
+.route-stop {
+    position: relative;
+    z-index: 2;
+}
+
+.project {
+    display: grid;
+    /* width: fit-content; */
+    max-width: 100%;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin: 4rem 0;
+}
+
+.project-content {
+    margin-right: 0;
+}
+
+
+.project-right {
+    /* background: var(--light); */
+    margin-right: 1rem;
+    padding: 0 3rem;
+    border-radius: 24px;
+}
+
+.project-right .project-image-container{
+    transform: translate(-3rem, 3rem);
+}
+
+.project-left .route-anchor {
+    position: absolute;
+    left: -50px;
+    top: 50%;
+}
+
+.project-right .route-anchor {
+    position: absolute;
+    right: -50px;
+    top: 50%;
+}
+
+.project-image .route-anchor {
+    position: absolute;
+    right: -50px;
+    top: 50%;
+}
+
+.project-image-container {
+    height: 40vw;
+    max-height: 400px;
+    max-width: 400px;
+    border-radius: 3rem;
+    border: 5px solid var(--blue);
+    filter: drop-shadow(var(--blue) 2rem 2rem);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(3rem);
+}
+
+.project-image-icon {
+    position: absolute;
+    right: 1rem;          /* Distance from the right edge */
+    
+    /* 
+       To place it in the "bottom right of the background image part":
+       The image ends at 66.66% from the top. We substract a bit 
+       of spacing so it sits comfortably right inside the image frame.
+    */
+    top: calc(66.66% - 60px); /* Adjust '45px' based on your icon's actual height */
+    
+    width: auto;          /* Adjust icon size as needed */
+    height: 60px;
+    z-index: 10;          /* Makes sure it floats on top of the image */
+    order: 2;
+}
+
+.project-image-container .project-image-background {
+    width: 100%;
+    height: 66.66%;
+    object-fit: cover;
+    order: 1;
+}
+
+.project-image-text {
+    width: 100%;
+    height: 33.33%;      /* Exactly one-third height */
+    background-color: #ffffff;
+    color: #333333;       /* Adjust text color as needed */
+    
+    /* Center the text nicely inside the box */
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    padding: 0 2rem;
+    box-sizing: border-box;
+    /* text-align: center; */
+    font-family: "Passion One", sans-serif;
+    font-size: 2rem;
+    line-height: 1;
+    order: 3;             /* Ensures it stays at the bottom visually */
+}
+
+.project-content :nth-child(*){
+    padding-bottom: 1rem;
+}
+
+.project-content h2 {
+    font-size: clamp(2rem, 3vw, 4rem);
+    color: var(--charcoal);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+
+/* ABOUT */
+
+.about {
+    background: var(--blue);
+    color: white;
+
+    padding: 6rem 8%;
+
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about img {
+    width: 100%;
+    border-radius: 20px;
+    border: 5px solid var(--yellow);
+}
+
+.about h2 {
+    color: var(--yellow);
+    margin-bottom: 1rem;
+}
+
+/* FOOTER */
+
+footer {
+    /* background: #12264f; */
+    color: var(--charcoal);
+
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .selling-points {
+        grid-template-columns: 1fr;
+    }
+
+    .project,
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .project-right {
+        padding: 0;
+        background: transparent;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
