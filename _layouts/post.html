@@ -25,7 +25,7 @@
 
         if (fileName) {
             // 2. Fetch the raw markdown file from your GitHub repository folder
-            fetch(`{{ site.baseurl }}/_posts/${fileName}`)
+            fetch(`{{ site.baseurl }}/posts/${fileName}`)
                 .then(response => {
                     if (!response.ok) throw new Error('Post not found');
                     return response.text();
