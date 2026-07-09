@@ -431,6 +431,18 @@ h1, h2 {
     top: 50%;
 }
 
+.bottom {
+    position: absolute;
+    bottom: 0;
+    top: auto !important; /* Overrides the top: 50% from other classes */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.line-illustration {
+    z-index: 1;
+}
+
 .project-image-container {
     height: 40vw;
     max-height: 400px;

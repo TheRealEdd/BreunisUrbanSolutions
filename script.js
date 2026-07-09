@@ -101,7 +101,7 @@ function drawRoute() {
     // 🎛️ CONFIGURATION VARIABLES
     // ==========================================
     const CORNER_RADIUS = 45; // Smoothness of the 90-degree tube bends
-    const FINAL_DROP = 60;     // How far the line clears the last element before heading left
+    const FINAL_DROP = 0;     // Line turns left exactly at the final element boundary
 
     // Clear previous vector drawings on resize/reload
     svg.innerHTML = "";
@@ -162,6 +162,7 @@ function drawRoute() {
     // 4. Trace vertices and inject controlled rounded curves at sharp intersections
     let pathString = `M ${vertices[0].x} ${vertices[0].y}`;
 
+    // Loops until the second-to-last vertex so pNext targets the final destination point (-1000)
     for (let i = 1; i < vertices.length - 1; i++) {
         const pPrev = vertices[i - 1];
         const pCurr = vertices[i];
@@ -197,7 +198,7 @@ function drawRoute() {
         }
     }
 
-    // Seal the vector path at its final off-screen destination
+    // Seal the vector path: Draw from the curve exit directly out to the off-screen left point
     const lastV = vertices[vertices.length - 1];
     pathString += ` L ${lastV.x} ${lastV.y}`;
 
