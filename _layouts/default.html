@@ -7,10 +7,20 @@
 </head>
 <body>
 
-    <nav>
-        <!-- Your existing navigation bar links go here -->
-        <a href="{{ site.baseurl }}/">Home</a> | <a href="{{ site.baseurl }}/blog.html">Blog</a>
-    </nav>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="./media/BUS-logo.svg" alt="BUS Logo" class="logo"></a>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#projecten">Projecten</a></li>
+                <li><a href="{{ site.baseurl }}/blog.html">Blog</a></li>
+                <li><a href="#over-bus">Over BUS</a></li>
+                <li><a href="#contacty" id="nav-contact-btn">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
         <!-- Jekyll will inject the unique page or post content right here -->
