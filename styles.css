@@ -548,10 +548,172 @@ footer {
     margin-bottom: 1rem;
 }
 
-/* BLOG POST */
+/* ==========================================================================
+   1. BLOG LAYOUT & CONTAINER STRUCTURE
+   ========================================================================== */
 
 .post-content {
-    max-width: 2000px;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Centered Header elements */
+.post-content > h1,
+.post-content > .post-date {
+    width: 100%;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.post-content > h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+}
+
+.post-content > .post-date {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+/* Thumbnail Styling */
+.post-thumbnail {
+    align-self: center;
+    width: 100%;
+    max-width: 1000px; /* Sweeter spot for cover image width */
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.post-thumbnail img {
+    display: block;      /* Removes the default inline baseline gap below images */
+    width: 100%;         /* Forces the image to fill the .post-thumbnail width */
+    height: auto;        /* Maintains the proper aspect ratio while scaling */
+    border: 5px solid var(--blue);
+    border-radius: 3rem;
+    
+    /* WARNING ON DROP-SHADOW: 
+       A 2rem (32px) offset is quite large. If the image scales down on mobile,
+       this huge shadow will push outside the screen and cause horizontal scrolling.
+    */
+    filter: drop-shadow(var(--blue) 2rem 2rem);
+}
+
+
+/* ==========================================================================
+   2. THE POST BODY TYPOGRAPHY (The Main Column)
+   ========================================================================== */
+
+.post-body {
+    width: 100%;
+    max-width: 750px; /* Golden standard width for comfortable reading */
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1.125rem; /* 18px - perfect for long-form text */
+    line-height: 1.75;  /* Breathable line spacing */
+    color: #333333;
+}
+
+
+/* ==========================================================================
+   3. INNER ELEMENT STYLING (The Kitchen Sink)
+   ========================================================================== */
+
+/* Universal spacing for all block elements inside the article */
+.post-body > * {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.post-content>h1 { 
+    font-size: 2.5rem;
+}
+
+/* Headings within the content */
+.post-body h1, 
+.post-body h2, 
+.post-body h3 {
+    color: #1a1a1a;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-top: 2.5rem; /* More space above headings to separate sections */
+    margin-bottom: 1rem;
+}
+
+.post-body h1 { font-size: 2rem; }
+.post-body h2 { font-size: 1.6rem; }
+.post-body h3 { font-size: 1.3rem; }
+
+/* Lists */
+.post-body ul, 
+.post-body ol {
+    padding-left: 2rem;
+}
+
+.post-body li {
+    margin-bottom: 0.5rem;
+}
+
+/* Inner Images (Images added inside the body by the writer) */
+.post-body img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+    margin: 2.5rem auto; /* Centers the inner images with healthy vertical breathing room */
+}
+
+/* Blockquotes */
+.post-body blockquote {
+    margin: 2rem 0;
+    padding: 1rem 1.5rem;
+    border: 4px solid var(--blue);
+    background-color: white;
+    border-radius: 2rem;
+/*     border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem; */
+    font-style: italic;
+    color: #4a5568;
+    
+}
+
+.post-body blockquote p {
+    margin: 0; /* Clears default paragraph spacing inside quotes */
+}
+
+/* Tables (Responsive & Elegant) */
+.post-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 1rem;
+    text-align: left;
+    overflow-x: auto;
+    display: block; /* Allows table to scroll horizontally on small mobile screens */
+}
+
+.post-body th {
+    background-color: #f1f5f9;
+    color: #1e293b;
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    border-bottom: 2px solid var(--blue);
+}
+
+.post-body td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    color: #475569;
+}
+
+.post-body tr:hover {
+    background-color: #f8fafc; /* Soft hover effect for table rows */
 }
 
 /* RESPONSIVE */
