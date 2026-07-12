@@ -231,7 +231,18 @@ h1, h2 {
     box-shadow: -0.2rem 0.2rem 0 var(--charcoal);
 }
 
-/* HERO */
+/* FOOTER */
+
+footer {
+    /* background: #12264f; */
+    color: var(--charcoal);
+
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+
+/* HOME HERO */
 
 .hero {
     padding: 6rem 5%;
@@ -537,16 +548,11 @@ h1, h2 {
     margin-bottom: 1rem;
 }
 
-/* FOOTER */
+/* BLOG POST */
 
-footer {
-    /* background: #12264f; */
-    color: var(--charcoal);
-
-    text-align: center;
-    padding: 4rem 2rem;
+.post-content {
+    max-width: 2000px;
 }
-
 
 /* RESPONSIVE */
 
