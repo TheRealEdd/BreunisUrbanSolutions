@@ -18,8 +18,8 @@ content:
         label: Cover Image
         type: image
         options:
-        media: images
-        path: media/blog
+          media: images
+          path: media/blog
         required: true
       - name: date
         label: Publish Date
