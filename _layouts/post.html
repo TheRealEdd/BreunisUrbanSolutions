@@ -8,7 +8,23 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="{{ site.baseurl }}/index.html">
+                    <img src="{{ site.baseurl }}/media/BUS-logo.svg" alt="BUS Logo" class="logo">
+                </a>
+            </div>
 
+            <ul class="nav-links">
+                <li><a href="{{ site.baseurl }}/index.html#projecten">Projecten</a></li>
+                <li><a href="{{ site.baseurl }}/blog.html">Blog</a></li>
+                <li><a href="{{ site.baseurl }}/index.html#over-bus">Over BUS</a></li>
+                <li><a href="{{ site.baseurl }}/index.html#contacty" id="nav-contact-btn">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
     <main class="post-content">
 
         <h1>{{ page.title }}</h1>
