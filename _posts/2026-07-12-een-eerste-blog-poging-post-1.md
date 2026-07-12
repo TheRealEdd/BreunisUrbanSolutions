@@ -1,6 +1,7 @@
 ---
 title: Een eerste blog poging (post 1)
 cover: /media/blog/a7-n7-ringweg-groningen_tcm26-338723-4028500163.jpg
+cover_image_alt: Verkeers situatie ringweg Groningen
 date: 2026-07-12
 description: In het kort, een post over van alles en nog wat. Hopelijk, iig.
 ---
