@@ -28,6 +28,8 @@ Donec ullamcorper nulla non metus auctor fringilla.
 
 ###### H6 Heading: Final Level
 
+![](/media/blog/pexels-ron-lach-8820187-copy-scaled.jpeg)
+
 Maecenas sed diam eget risus varius blandit sit amet non magna.
 
 ---
