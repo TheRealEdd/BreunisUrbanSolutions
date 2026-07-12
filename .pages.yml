@@ -18,6 +18,9 @@ content:
         label: Cover Image
         type: image
         required: true
+      - name: cover_image_alt
+        label: Cover Image Alt Text
+        type: string
       - name: date
         label: Publish Date
         type: date
