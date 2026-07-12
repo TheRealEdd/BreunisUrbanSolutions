@@ -17,8 +17,9 @@
             {{ page.date | date: "%B %d, %Y" }}
         </p>
 
-        <div class="entry-content">
-            {{ content | replace: 'src="/media/', 'src="' | replace: 'src="', 'src="' | prepend: site.baseurl | replace: 'src="', 'src="/media/' }}
+        <div class="post-body">
+            {% assign market_path = 'src="' | append: site.baseurl | append: '/media/blog/' %}
+            {{ content | replace: 'src="/media/blog/', market_path }}
         </div>
 
     </main>
