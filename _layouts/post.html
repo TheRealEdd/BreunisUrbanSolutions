@@ -24,8 +24,16 @@
             </ul>
         </nav>
     </header>
-    
+
     <main class="post-content">
+
+        {% if page.header_image %}
+        <div class="post-thumbnail">
+            <img
+                src="{{ page.cover | relative_url }}"
+                alt="{{ page.cover_image_alt | default: page.title }}">
+        </div>
+        {% endif %}
 
         <h1>{{ page.title }}</h1>
 
