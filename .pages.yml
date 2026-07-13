@@ -59,12 +59,22 @@ content:
         label: Project content
         type: rich-text
         required: true
+  - name: quotes
+    label: Quotes
+    type: collection
+    path: _quotes
+    filename: "{year}-{month}-{day}-{slug}.md"
+    format: yaml-frontmatter
+    fields:
       - name: quote-name
         label: Quote naam
         type: string
+        required: true
       - name: quote
         label: Quote content (zonder "")
         type: text
+        required: true
       - name: quote-date
         label: Quote datum
         type: date
+        required: true
