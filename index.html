@@ -37,8 +37,8 @@
             <ul class="nav-links">
                 <li><a href="#projecten">Projecten</a></li>
                 <li><a href="{{ site.baseurl }}/blog.html">Blog</a></li>
-                <li><a href="#over-bus">Over BUS</a></li>
-                <li><a href="#contacty" id="nav-contact-btn">Contact</a></li>
+                <!-- <li><a href="#about">Over BUS</a></li> -->
+                <li><a href="{{ site.baseurl }}/contact.html" id="nav-contact-btn">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -46,7 +46,10 @@
     <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Ruimtelijke<br>ontwikkeling<br>in <span id="hero-text-highlight">Groningen</span></h1>
+            <div class="hero-text">
+                <h1>Jouw partner in <span id="hero-text-highlight"><span id="hero-text-spread">ruimtelijke</span> ontwikkelingen</span></h1>
+                <h3>Actief in noord-Nederland</h3>
+            </div>
             <img src="media/hero-illustratie.svg" alt="Groningen landschap met Martinitoren, windmolen, bus en bomen, vlak geïllustreerd">
         </div>
     </section>
@@ -66,7 +69,7 @@
             <div class="partners-carousel">
                 <h3>Partners die ook in de BUS zijn gestapt:</h3>
                 <div class="logoTicker">
-                    <div class="logoTrack">
+                    <div id="logoTrack">
                         <!-- Original logos -->
                         <img src="media/logos/ukk-logo.webp" alt="Utfieringsplan Lytse Kearnen Fryslan logo">
                         <img src="media/logos/pau-logo.webp" alt="Bureau PAU logo">
@@ -89,7 +92,7 @@
         <article id="line-stop-1" class="project project-left route-stop" data-circle="true">
             <div class="route-anchor"></div>
             <div class="project-content">
-                <h2>Duurzaam aan de slag</h2>
+                <h2>Duurzame (stads)mobiliteit</h2>
                 <p>
                     De inrichting van onze openbare ruimte is onderhevig aan compromissen, een integrale benadering is daarom belangrijk.
                     <br><br>
@@ -116,7 +119,7 @@
                 <img src="media/fotos/WhatsApp Image 2023-05-02 at 17.49.14-1.webp" alt="Stad Groningen" class="project-image-background">
             </div>
             <div class="project-content">
-                <h2>Innovatief met water</h2>
+                <h2>Watermanagement</h2>
                 <p>
                     De traditionele aanpak waar wij Nederlanders zo goed in zijn begint zijn grenzen te bereiken. Innovatieve manieren van watermanagement zijn bekend, dus laten we die ook toepassen. 
                     
@@ -134,7 +137,7 @@
 
             <div class="route-anchor"></div>
             <div class="project-content">
-                <h2>Altijd energie voor oplossingen</h2>
+                <h2>Energie en Mobiliteit</h2>
                 <p>
                     Infrastructuur en energie verbinden ons met elkaar en onze omgeving. Beiden zijn een middel voor leefbaarheid en duurzaamheid, geen einddoel. 
 
@@ -188,7 +191,7 @@
         <h3>BUS — Breunis Urban Solutions</h3>
         <p>Creating sustainable urban futures.</p>
 
-        <a href="mailto:info@bus.nl" class="footer-btn">
+        <a href="{{ site.baseurl }}/blog.html" class="footer-btn">
             Contact opnemen
         </a>
     </footer>

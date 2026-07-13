@@ -236,3 +236,12 @@ window.addEventListener("resize", drawRoute);
 if (document.getElementById("projects")) {
     new ResizeObserver(drawRoute).observe(document.getElementById("projects"));
 }
+
+window.addEventListener("load", () => {
+  const track = document.getElementById("logoTrack");
+
+  // total width = 2 halves; shift = half of total
+  const half = track.scrollWidth / 2;
+
+  track.style.setProperty("--shift", half);
+});
