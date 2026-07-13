@@ -48,7 +48,7 @@ content:
         type: date
         required: true
       - name: to-date
-        label: Eind datum
+        label: Eind datum (leeg = tot heden)
         type: date
         required: false
       - name: logo
