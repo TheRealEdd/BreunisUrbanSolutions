@@ -59,3 +59,13 @@ content:
         label: Project content
         type: rich-text
         required: true
+      - name: quote-name
+        label: Quote naam
+        type: text
+      - name: quote
+        label: Quote content (zonder "")
+        type: text
+      - name: quote-date
+        label: Quote datum
+        type: date
+        required: false
