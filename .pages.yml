@@ -68,4 +68,3 @@ content:
       - name: quote-date
         label: Quote datum
         type: date
-        required: false
