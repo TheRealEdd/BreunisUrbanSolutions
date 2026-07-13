@@ -11,25 +11,25 @@ content:
     format: yaml-frontmatter
     fields:
       - name: title
-        label: Post Title
+        label: Blog titel
         type: string
         required: true
       - name: cover
-        label: Cover Image
+        label: Blog foto
         type: image
         required: true
       - name: cover_image_alt
-        label: Cover Image Alt Text
+        label: Blog foto beschrijving
         type: string
       - name: date
-        label: Publish Date
+        label: Datum gepubliceerd
         type: date
         required: true
       - name: description
-        label: Short Summary
+        label: Blog beschrijving (kort)
         type: text
       - name: body
-        label: Blog Content
+        label: Blog (lang)
         type: rich-text
         required: true
   - name: posts
