@@ -284,10 +284,10 @@ footer {
     line-height: 1.2;
 }
 
-#hero-text-spread {
+/* #hero-text-spread {
     letter-spacing: 15px;
     font-style: italic;
-}
+} */
 
 .hero img {
     max-width: calc(100% - 4rem);
