@@ -61,7 +61,7 @@ content:
         required: true
       - name: quote-name
         label: Quote naam
-        type: text
+        type: string
       - name: quote
         label: Quote content (zonder "")
         type: text
