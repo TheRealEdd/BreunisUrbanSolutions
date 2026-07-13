@@ -15,7 +15,7 @@
 /* Fonts */
 @font-face {
     font-family: "Cooper Black";
-    src: url("./fonts/Cooper-Black.TTF") format("truetype");
+    src: url("./fonts/Cooper-Black.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
@@ -39,6 +39,12 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+}
+
+a, a:visited, a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
 }
 
 body {
@@ -634,7 +640,7 @@ footer {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 1.125rem; /* 18px - perfect for long-form text */
     line-height: 1.75;  /* Breathable line spacing */
-    color: #333333;
+    color: var(--charcoal);
 }
 
 
@@ -656,7 +662,7 @@ footer {
 .post-body h1, 
 .post-body h2, 
 .post-body h3 {
-    color: #1a1a1a;
+    color: var(--charcoal);
     font-weight: 700;
     line-height: 1.3;
     margin-top: 2.5rem; /* More space above headings to separate sections */
@@ -696,7 +702,7 @@ footer {
 /*     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem; */
     font-style: italic;
-    color: #4a5568;
+    color: var(--charcoal);
     
 }
 
@@ -717,7 +723,7 @@ footer {
 
 .post-body th {
     background-color: #f1f5f9;
-    color: #1e293b;
+    color: var(--charcoal);
     font-weight: 600;
     padding: 0.75rem 1rem;
     border-bottom: 2px solid var(--blue);
@@ -726,7 +732,7 @@ footer {
 .post-body td {
     padding: 0.75rem 1rem;
     border-bottom: 1px solid #e2e8f0;
-    color: #475569;
+    color: var(--charcoal); /* Text colour */
 }
 
 .post-body tr:hover {
@@ -736,20 +742,59 @@ footer {
 
 /* CONTACT FORM STUFF */
 
+.contact-intro {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: center; /* Centers the text block vertically with the image */
+}
+
+.contact-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-column: 1;
+}
+
+.contact-title {
+    margin: 0 0 1rem;
+}
+
+.contact-description {
+    margin: 0;
+}
+
+.contact-foto {
+    width: 20rem;
+    height: 20rem;
+    overflow: hidden;
+    border-radius: 50%;
+    position: relative;
+    grid-column: 2;
+}
+
+.contact-foto img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .contact-section {
     width: 100%;
-    max-width: 40rem;
+    max-width: 50rem;
     margin-left: auto;
     margin-right: auto;
     padding: 3rem 1rem;
 }
 
-.contact-intro>*+* {
-    margin-top: 1rem;
+.contact-alternative {
+    margin-top: 1.5rem;
 }
 
 .contact-description {
-    color: rgb(107 114 128);
+    color: var(--charcoal);
 }
 
 .contact-form {
@@ -829,6 +874,55 @@ footer {
     box-shadow: -0.2rem 0.2rem 0 var(--charcoal);
 }
 
+.contact-options {
+    display: grid;
+    /* Forces exactly 3 equal columns */
+    grid-template-columns: 1fr 2fr 1fr; 
+    gap: 1.5rem; /* Adds clean spacing between columns */
+    width: 100%;
+}
+
+.contact-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Centers text/elements horizontally */
+    text-align: center;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: var(--blue) 2px;
+    border-radius: 8px;
+}
+
+.contact-option-heading {
+    margin-bottom: 0.5rem;
+    font-family: "Inter", sans-serif;
+    font-size: 1.25rem;
+}
+
+.contact-option-content {
+    margin: 0;
+    font-size: 1rem;
+    font-family: "Inter", sans-serif;
+    word-break: break-word; /* Prevents long emails from breaking the layout on mobile */
+}
+
+/* SVG Size, Display, and Color Control */
+.contact-svg {
+    display: inline-block; /* Forces the browser to respect the width and height */
+    vertical-align: middle;
+    width: 28px;           /* Constrains the icon perfectly */
+    height: 28px;
+    fill: var(--blue);         /* Sets the official LinkedIn blue */
+    transition: transform 0.2s ease;
+}
+
+/* Ensures the parent tags don't accidentally collapse to 0px width */
+.linkedin-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; 
+}
 
 /* RESPONSIVE */
 

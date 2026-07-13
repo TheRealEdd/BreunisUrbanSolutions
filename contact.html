@@ -3,44 +3,148 @@ layout: default
 title: BUS | Contact
 ---
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page.title }} | {{ site.name }}</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="media/BUS-logo.svg" alt="BUS Logo" class="logo">
+                </a>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="projecten.html">Projecten</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html" id="nav-contact-btn">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+
+
+
+
+
+
 <section class="contact-section">
-  <div class="contact-intro">
-    <h1 class="contact-title">Koffietje doen?</h1>
-    <p class="contact-description">
-      Theetje is ook goed uiteraard; ik heb vooral zin om elkaar beter te leren kennen en te bespreken hoe we het noorden van Nederland nog leefbaarder kunnen maken. Ik ben te bereiken via de mail, telefoon of op LinkedIn.
-    </p>
-  </div>
 
-  <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+    
 
-    <input type="hidden" name="access_key" value="dbdbeac4-c271-442d-9144-74680388bcc2" />
-    <input type="hidden" name="subject" value="New Contact Form Submission from Web3Forms" />
-    <input type="hidden" name="from_name" value="My Website" />
-    <!-- More custom ization options available in the docs: https://docs.web3forms.com -->
-
-    <div class="form-group-container">
-      <div class="form-group">
-        <label for="name" class="form-label">Voor- en Achternaam*</label>
-        <input id="name" name="name" class="form-input" placeholder="Je voor- en achternaam" type="text" required/>
-      </div>
-      <div class="form-group">
-        <label for="company-name" class="form-label">Bedrijfsnaam</label>
-        <input id="company-name" name="company-name" class="form-input" placeholder="Naam van je bedrijf" type="text" />
-      </div>
-      <div class="form-group">
-        <label for="email" class="form-label">E-mail*</label>
-        <input id="email" name="email" class="form-input" placeholder="Je email adres" type="email" required/>
-      </div>
-      <div class="form-group">
-        <label for="phone" class="form-label">Telefoonnummer</label>
-        <input id="phone" name="phone" class="form-input" placeholder="0612345678" type="text" />
-      </div>
-      <div class="form-group">
-        <label for="message" class="form-label">Waar kan ik je mee helpen?*</label>
-        <textarea class="form-textarea" id="message" name="message" placeholder="Typ hier je bericht" required></textarea>
-      </div>
+    <div class="contact-intro">
+        <div class="contact-text">
+            <h1 class="contact-title">Koffietje doen?</h1>
+            <p class="contact-description">
+                Theetje is ook goed uiteraard; ik heb vooral zin om elkaar beter te leren kennen en te bespreken hoe we het
+                noorden van Nederland nog leefbaarder kunnen maken.
+            </p>
+        </div>
+        <div class="contact-foto">
+            <img src="media/fotos/Charlotte.jpg" alt="Charlotte Breunis">
+        </div>
     </div>
-    <button class="form-submit" type="submit">Bericht verzenden</button>
-  </form>
+    
+    <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+    
+        <input type="hidden" name="access_key" value="dbdbeac4-c271-442d-9144-74680388bcc2" />
+        <input type="hidden" name="subject" value="New Contact Form Submission from Web3Forms" />
+        <input type="hidden" name="from_name" value="My Website" />
+        <!-- More custom ization options available in the docs: https://docs.web3forms.com -->
+    
+        <div class="form-group-container">
+            <div class="form-group">
+                <label for="name" class="form-label">Voor- en Achternaam*</label>
+                <input id="name" name="name" class="form-input" placeholder="Je voor- en achternaam" type="text" required />
+            </div>
+            <div class="form-group">
+                <label for="company-name" class="form-label">Bedrijfsnaam</label>
+                <input id="company-name" name="company-name" class="form-input" placeholder="Naam van je bedrijf"
+                    type="text" />
+            </div>
+            <div class="form-group">
+                <label for="email" class="form-label">E-mail*</label>
+                <input id="email" name="email" class="form-input" placeholder="Je email adres" type="email" required />
+            </div>
+            <div class="form-group">
+                <label for="phone" class="form-label">Telefoonnummer</label>
+                <input id="phone" name="phone" class="form-input" placeholder="0612345678" type="text" />
+            </div>
+            <div class="form-group">
+                <label for="message" class="form-label">Waar kan ik je mee helpen?*</label>
+                <textarea class="form-textarea" id="message" name="message" placeholder="Typ hier je bericht"
+                    required></textarea>
+            </div>
+        </div>
+        <button class="form-submit" type="submit">Bericht verzenden</button>
+    </form>
+    
+    <div class="contact-alternative">
+        <h1 class="contact-title">Wil je me elders bereiken?</h1>
+        <p class="contact-description">
+            Ik ben ook beschikbaar via telefoon, op de mail of op LinkedIn:
+        </p>
+        <div class="contact-options">
+            <div class="contact-option">
+                <h2 class="contact-option-heading">Telefoon</h2>
+                <h3 class="contact-option-content"><a href="tel:+316-43411858">+31 6 43411858</a></h3>
+            </div>
+    
+            <div class="contact-option">
+                <h2 class="contact-option-heading">E-mail</h2>
+                <h3 class="contact-option-content">
+                    <a href="mailto:breunisurbansolutions@gmail.com">breunisurbansolutions@gmail.com</a>
+                </h3>
+            </div>
+    
+            <div class="contact-option">
+                <h2 class="contact-option-heading">LinkedIn</h2>
+                <h3 class="contact-option-content">
+                    <a href="https://www.linkedin.com/in/charlotte-breunis-a12582151/" class="linkedin-link">
+                        <svg class="contact-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                            aria-hidden="true">
+    
+                            <path
+                                d="M100.3 480H7.4V180.9h92.9V480zM53.8 140.1C24.1 140.1 0 115.5 0 85.8 0 56.1 24.1 32 53.8 32c29.7 0 53.8 24.1 53.8 53.8 0 29.7-24.1 54.3-53.8 54.3zM448 480h-92.7V334.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V480h-92.8V180.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V480z" />
+                        </svg>
+                    </a>
+                </h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-cv">
+        <h1 class="contact-title">Geïnteresseerd in mijn achtergrond?</h1>
+        <p class="contact-description">
+            Mijn CV is ook beschikbaar, klik op de link hieronder:
+        </p>
+        <div class="contact-options">
+            <div class="contact-option">
+                <h2 class="contact-option-heading">Download CV</h2>
+                <h3 class="contact-option-content"><a href="tel:+316-43411858">+31 6 43411858</a></h3>
+            </div>
+        </div>
+    </div>
 
 </section>
+
+
+
+
+
+
+
+    <footer>
+        <p>© {{ site.name }} 2026</p>
+    </footer>
+
+</body>
+</html>
