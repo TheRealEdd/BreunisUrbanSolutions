@@ -32,32 +32,30 @@ content:
         label: Blog (lang)
         type: rich-text
         required: true
-  - name: posts
-    label: Blog Posts
+  - name: projects
+    label: Projecten
     type: collection
-    path: _posts
+    path: _projects
     filename: "{year}-{month}-{day}-{slug}.md"
     format: yaml-frontmatter
     fields:
-      - name: title
-        label: Post Title
+      - name: company
+        label: Bedrijf
         type: string
         required: true
-      - name: cover
-        label: Cover Image
-        type: image
-        required: true
-      - name: cover_image_alt
-        label: Cover Image Alt Text
-        type: string
-      - name: date
-        label: Publish Date
+      - name: from-date
+        label: Datum van
         type: date
         required: true
-      - name: description
-        label: Short Summary
-        type: text
+      - name: to-date
+        label: Datum van
+        type: date
+        required: false
+      - name: logo
+        label: Logo bedrijf
+        type: image
+        required: true
       - name: body
-        label: Blog Content
+        label: Project content
         type: rich-text
         required: true
