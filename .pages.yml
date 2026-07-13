@@ -44,11 +44,11 @@ content:
         type: string
         required: true
       - name: from-date
-        label: Datum van
+        label: Begin datum
         type: date
         required: true
       - name: to-date
-        label: Datum van
+        label: Eind datum
         type: date
         required: false
       - name: logo
