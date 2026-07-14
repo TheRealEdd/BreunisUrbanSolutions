@@ -324,47 +324,51 @@ footer {
     margin-left: auto; /* pushes ticker to the right */
 }
 
-
 /* LOGO TICKER */
-
 .logoTicker {
     width: 45vw;
     overflow: hidden;
     position: relative;
-    padding: 1rem;
+    padding: 1rem 0; /* Padding on top/bottom, 0 on sides to keep gradients flush */
 }
 
 #logoTrack {
-  display: flex;
-  align-items: center;
-  gap: var(--logo-gap);
-  width: max-content;
-  filter: grayscale(100%);
-  transform: translate3d(0,0,0);
-  will-change: transform;
-  animation: tickerScroll var(--ticker-speed) linear infinite;
+    display: flex;
+    align-items: center;
+    width: max-content;
+    will-change: transform;
+    animation: tickerScroll var(--ticker-speed) linear infinite;
 }
 
+/* Corrected Animation Loop */
 @keyframes tickerScroll {
-  from { transform: translate3d(calc(var(--shift) * -1px), 0, 0); }
-  to   { transform: translate3d(0,0,0); }
+    from { 
+        transform: translate3d(-50%, 0, 0); 
+    }
+    to { 
+        transform: translate3d(0, 0, 0); 
+    }
 }
-
 
 #logoTrack img {
     height: var(--logo-height);
     width: auto;
     flex-shrink: 0;
-
-    /* Optional */
-    opacity: 0.85;
-    transition: opacity 0.3s ease;
+    padding: 0 3rem; /* This replaces a 3rem gap seamlessly */
+    
+    /* Make logos uniform */
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
+/* On hover, bring back original color and full visibility */
 #logoTrack img:hover {
+    filter: grayscale(0%);
     opacity: 1;
 }
 
+/* Gradient overlays for the fade effect */
 .logoTicker::before,
 .logoTicker::after {
     content: "";
@@ -378,20 +382,12 @@ footer {
 
 .logoTicker::before {
     left: 0;
-    background: linear-gradient(
-        to right,
-        white,
-        transparent
-    );
+    background: linear-gradient(to right, var(--cream), transparent);
 }
 
 .logoTicker::after {
     right: 0;
-    background: linear-gradient(
-        to left,
-        white,
-        transparent
-    );
+    background: linear-gradient(to left, var(--cream), transparent);
 }
 
 
