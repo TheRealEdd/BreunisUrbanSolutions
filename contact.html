@@ -121,6 +121,11 @@ title: BUS | Contact
         </div>
     </div>
 
+    
+    {% assign cv_data = site.cv | first %}
+
+    {% if cv_data and cv_data.cv_file %}
+
     <div class="contact-cv">
         <h1 class="contact-title">Geïnteresseerd in mijn achtergrond?</h1>
         <p class="contact-description">
@@ -128,18 +133,16 @@ title: BUS | Contact
         </p>
         <div class="contact-options">
             <div class="contact-option">
-                {% assign cv_data = site.cv | first %}
-
-                {% if cv_data and cv_data.cv_file %}
-                <a href="{{ cv_data.cv_file | prepend: site.baseurl }}" download="CV_Breunis_Urban_Solutions.pdf" class="download-button">
+                <a href="{{ cv_data.cv_file | prepend: site.baseurl }}"
+                    download="CV_Breunis_Urban_Solutions.pdf" class="download-button">
                     Download CV
                 </a>
-                {% else %}
-                <span class="disabled-button">CV tijdelijk onbeschikbaar</span>
-                {% endif %}
             </div>
         </div>
     </div>
+
+    {% endif %}
+            
 
 </section>
 
