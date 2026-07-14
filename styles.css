@@ -920,6 +920,10 @@ footer {
     text-decoration: none; 
 }
 
+.contact-cv {
+    width: 100%;
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 900px) {
