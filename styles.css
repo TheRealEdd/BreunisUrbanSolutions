@@ -474,13 +474,29 @@ footer {
     max-width: 400px;
     border-radius: 3rem;
     border: 5px solid var(--blue);
-    filter: drop-shadow(var(--blue) 2rem 2rem);
     position: relative;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    
+    /* WARNING: overflow: hidden will clip your drop-shadow! */
+    /* If you need overflow:hidden for internal images, consider putting */
+    /* the drop-shadow on a parent wrapper div instead. */
+    overflow: hidden; 
+    
     transform: translateY(3rem);
+
+    /* 1. Define a default shadow direction variable */
+    --shadow-x: 2rem; 
+    
+    /* 2. Apply the filter using variables with correct shorthand order */
+    filter: drop-shadow(var(--shadow-x) 2rem 0px var(--blue));
 }
+
+/* 3. Simply swap the Y-axis variable for the left version */
+.project-image-container.left {
+    --shadow-x: -2rem;
+}
+
 
 .project-image-icon {
     position: absolute;
@@ -562,6 +578,7 @@ footer {
     object-fit: cover;
     border-radius: 50%;
     border: 5px solid var(--white);
+    filter: drop-shadow(-2rem 2rem 0px var(--white));
 }
 
 /* 2. TEXT CONTAINER (Holds the H2 and the Bubble) */
