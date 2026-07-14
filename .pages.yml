@@ -87,7 +87,7 @@ content:
   - name: cv_singleton
     label: Huidige CV
     type: file
-    path: _cv.md
+    path: _cv
     format: yaml-frontmatter
     fields:
       - name: cv_file
