@@ -93,7 +93,7 @@ content:
       - name: cv_file
         label: Upload nieuw CV (Alleen PDF)
         type: file
-        required: true
+        required: false
         options:
           input: media/cv
           output: /media/cv
