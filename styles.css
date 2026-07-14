@@ -537,29 +537,76 @@ footer {
 }
 
 
-/* ABOUT */
-
+/* ABOUT SECTION */
+/* ABOUT SECTION */
 .about {
     background: var(--blue);
-    color: white;
-
     padding: 6rem 8%;
-
     display: grid;
-    grid-template-columns: 350px 1fr;
+    /* Grid keeps the image on the left, and the text container on the right */
+    grid-template-columns: 300px 1fr;
     gap: 4rem;
     align-items: center;
 }
 
-.about img {
-    width: 100%;
-    border-radius: 20px;
-    border: 5px solid var(--yellow);
+/* 1. CROPPED CIRCLE IMAGE */
+.about-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.about img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--white);
+}
+
+/* 2. TEXT CONTAINER (Holds the H2 and the Bubble) */
+.about-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Space between the H2 and the speech bubble */
+}
+
+/* White Heading outside the bubble */
 .about h2 {
-    color: var(--yellow);
+    font-size: clamp(2rem, 3vw, 4rem);
+    color: var(--white);
+    line-height: 1.2;
     margin-bottom: 1rem;
+}
+
+/* 3. SPEECH BUBBLE */
+.about-content {
+    background-color: white;
+    color: var(--charcoal);
+    padding: 2.5rem;
+    border-radius: 24px;
+    position: relative; /* Required to anchor the pointer */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* 4. THE SPEECH BUBBLE POINTER */
+.about-content::before {
+    content: "";
+    position: absolute;
+    left: -18px;
+    /* Adjusted top alignment so the tail points closer to the center of the image */
+    top: 40px; 
+    
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 20px solid white; 
+}
+
+.about p {
+    margin: 0;
+    line-height: 1.6;
 }
 
 /* ==========================================================================
