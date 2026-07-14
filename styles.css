@@ -920,6 +920,12 @@ footer {
     text-decoration: none; 
 }
 
+#download-cv {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 900px) {
