@@ -81,7 +81,7 @@ content:
   - name: cv_singleton
     label: CV Upload
     type: file
-    path: _data/cv.md
+    path: _cv.md
     format: yaml-frontmatter
     fields:
       - name: cv_file
