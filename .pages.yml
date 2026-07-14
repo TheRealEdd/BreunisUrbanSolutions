@@ -91,11 +91,11 @@ content:
         type: date
         required: true
 
-  # --- FIXED CV SINGLETON ---
+
   - name: cv_singleton
     label: Huidige CV
     type: file
-    path: _cv/cv.md # Note: changed this to a specific file target instead of just the folder directory
+    path: _cv/cv.md
     format: yaml-frontmatter
     fields:
       - name: cv_file
@@ -103,5 +103,5 @@ content:
         type: file
         required: false
         options:
-          media: cv  # <-- This tells Pages CMS to use your 'cv' configuration block directly
+          media: cv
           extensions: ["pdf"]
