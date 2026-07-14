@@ -24,6 +24,8 @@ content:
         label: Blog foto
         type: image
         required: true
+        options:
+          media: blog
       - name: cover_image_alt
         label: Blog foto beschrijving
         type: string
@@ -38,6 +40,7 @@ content:
         label: Blog (lang)
         type: rich-text
         required: true
+
   - name: projects
     label: Projecten
     type: collection
@@ -61,10 +64,13 @@ content:
         label: Logo bedrijf
         type: image
         required: true
+        options:
+          media: blog
       - name: body
         label: Project content
         type: rich-text
         required: true
+
   - name: quotes
     label: Quotes
     type: collection
@@ -84,10 +90,12 @@ content:
         label: Quote datum
         type: date
         required: true
+
+  # --- FIXED CV SINGLETON ---
   - name: cv_singleton
     label: Huidige CV
     type: file
-    path: _cv
+    path: _cv/cv.md # Note: changed this to a specific file target instead of just the folder directory
     format: yaml-frontmatter
     fields:
       - name: cv_file
@@ -95,6 +103,5 @@ content:
         type: file
         required: false
         options:
-          input: media/cv
-          output: /media/cv
+          media: cv  # <-- This tells Pages CMS to use your 'cv' configuration block directly
           extensions: ["pdf"]
