@@ -1,8 +1,12 @@
 media:
-  input: media/blog
-  output: /media/blog
-  cv-input: media/cv
-  cv-output: /media/cv
+  - name: blog
+    label: Blog Media
+    input: media/blog
+    output: /media/blog
+  - name: cv
+    label: Documents & CVs
+    input: media/cv
+    output: /media/cv
 
 content:
   - name: posts
