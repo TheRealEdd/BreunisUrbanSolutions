@@ -255,7 +255,7 @@ footer {
 /* HOME HERO */
 
 .hero {
-    padding: 6rem 5%;
+    padding: 6rem 5% 0;
 }
 
 .hero-content {
@@ -289,11 +289,6 @@ footer {
     font-family: "Cooper Black", serif;
     line-height: 1.2;
 }
-
-/* #hero-text-spread {
-    letter-spacing: 15px;
-    font-style: italic;
-} */
 
 .hero img {
     max-width: calc(100% - 4rem);
