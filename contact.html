@@ -131,14 +131,10 @@ title: BUS | Contact
         <p class="contact-description">
             Mijn CV is ook beschikbaar, klik op de link hieronder:
         </p>
-        <div class="contact-options">
-            <div class="contact-option">
-                <a href="{{ cv_data.cv_file | prepend: site.baseurl }}"
-                    download="CV_Breunis_Urban_Solutions.pdf" class="form-submit">
-                    Download CV
-                </a>
-            </div>
-        </div>
+        <a href="{{ cv_data.cv_file | prepend: site.baseurl }}"
+            download="CV_Breunis_Urban_Solutions.pdf" class="form-submit">
+            Download CV
+        </a>
     </div>
 
     {% endif %}
