@@ -1,6 +1,8 @@
 media:
   input: media/blog
   output: /media/blog
+  cv-input: media/cv
+  cv-output: /media/cv
 
 content:
   - name: posts
