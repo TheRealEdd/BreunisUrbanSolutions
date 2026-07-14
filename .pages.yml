@@ -85,7 +85,7 @@ content:
         type: date
         required: true
   - name: cv_singleton
-    label: CV Upload
+    label: Huidige CV
     type: file
     path: _cv.md
     format: yaml-frontmatter
