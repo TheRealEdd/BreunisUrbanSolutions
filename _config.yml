@@ -1,8 +1,10 @@
 name: Breunis Urban Solutions
 url: "https://therealedd.github.io"
-baseurl: "/testingGround"  # <--- CRITICAL: Include the forward slash before your exact repo name
+baseurl: "/testingGround"
 
 collections:
   posts:
     output: true
     permalink: /blog/:title/
+  cv:
+    output: false

@@ -128,7 +128,15 @@ title: BUS | Contact
         </p>
         <div class="contact-options">
             <div class="contact-option">
-                <h2 class="contact-option-heading">Download mijn CV</h2>
+                {% assign cv_data = site.cv | first %}
+
+                {% if cv_data and cv_data.cv_file %}
+                <a href="{{ cv_data.cv_file | prepend: site.baseurl }}" download="CV_Breunis_Urban_Solutions.pdf" class="download-button">
+                    Download CV
+                </a>
+                {% else %}
+                <span class="disabled-button">CV tijdelijk onbeschikbaar</span>
+                {% endif %}
             </div>
         </div>
     </div>
