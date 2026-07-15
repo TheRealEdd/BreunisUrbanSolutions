@@ -323,8 +323,7 @@ h3 {
 /* --- SVG Icon Styling --- */
 .linkedin-link {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  width: 5rem;
 }
 
 .linkedin-icon {
@@ -343,19 +342,36 @@ h3 {
   .footer-grid {
     grid-template-columns: 1fr; /* Stack columns on tablet/mobile */
     gap: 40px;
-    text-align: center;
+    text-align: left;
   }
 
   .footer-col {
     min-height: auto; /* Allow natural heights when stacked */
     justify-content: center;
     gap: 15px;
+    order: 1;
   }
+    
+    .footer-nav {
+        padding: 0;
+    }
 
   .text-right, 
   .align-right {
-    text-align: center;
-    justify-content: center;
+    text-align: left;
+    justify-content: left;
+  }
+    
+  .col-left {
+    order: 3;
+  }
+    
+  .col-right {
+    order: 1;
+  }
+    
+  .col-center {
+    order: 2;      
   }
 }
 
