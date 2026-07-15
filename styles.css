@@ -245,20 +245,20 @@ h3 {
 
 /* --- Footer Container Reset & Base Styling --- */
 .site-footer {
-  background-color: #1a1a1a; /* Dark background */
-  color: #e0e0e0;            /* Light gray text */
+  background-color: var(--cream); /* Dark background */
+  color: var(--charcoal);            /* Light gray text */
   padding: 40px 20px;
   font-family: sans-serif;
 }
 
 .site-footer a {
-  color: #e0e0e0;
+  color: var(--charcoal);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .site-footer a:hover {
-  color: #0077b5; /* Transitions to LinkedIn blue on hover */
+  color: var(--blue); /* Transitions to LinkedIn blue on hover */
 }
 
 /* --- Footer Title --- */
