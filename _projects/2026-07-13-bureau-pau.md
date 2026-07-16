@@ -6,6 +6,8 @@ from-date: 2024-12-13
 to-date: 2025-10-13
 tags:
   - Duurzame Stad
+summary: Als assistent-projectleider en kwartiermaker ondersteunde ik Bureau PAU
+  bij diverse opdrachten.
 ---
 ![](</media/blog/logo fryslan.svg>)
 
