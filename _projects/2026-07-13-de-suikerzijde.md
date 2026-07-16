@@ -1,7 +1,11 @@
 ---
 company: De Suikerzijde
-from-date: 2024-10-13
 logo: /media/blog/desuikerzijde logo.jpeg
+role: VERVANG LATER
+from-date: 2024-10-13
+to-date: 2026-07-16
+tags:
+  - Duurzame Stad
 ---
 Als junior projectleider mobiliteit en gebiedsontwikkeling zal ik De Suikerzijde mee helpen ontwikkelen. De Suikerzijde wordt een aantrekkelijk en toekomstgericht stadsdeel. Vlakbij de binnenstad van Groningen, op de plek van de voormalige Suikerfabriek. 
 
