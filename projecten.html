@@ -5,32 +5,33 @@ permalink: /projecten/
 ---
 
 <div class="projects-container">
-  <h1>Onze Projecten</h1>
+    <h1>Onze Projecten</h1>
 
-  <div class="filter-navigation">
-    <button class="filter-btn active" data-filter="all">Alles</button>
-    <button class="filter-btn" data-filter="Energie en Mobiliteit">Energie en Mobiliteit</button>
-    <button class="filter-btn" data-filter="Water">Water</button>
-    <button class="filter-btn" data-filter="Duurzame Stad">Duurzame Stad</button>
-  </div>
+    <div class="filter-navigation">
+        <button class="filter-btn active" data-filter="all">Alles</button>
+        <button class="filter-btn" data-filter="Energie en Mobiliteit">Energie en Mobiliteit</button>
+        <button class="filter-btn" data-filter="Water">Water</button>
+        <button class="filter-btn" data-filter="Duurzame Stad">Duurzame Stad</button>
+    </div>
 
-  <div class="projects-grid">
-    {% assign sorted_projects = site.projects | sort: 'date' | reverse %}
+    {% assign sorted_projects = site.projects | sort: "date" | reverse %}
+
+    {% if sorted_projects.size > 0 %}
     {% for project in sorted_projects %}
-      <div class="project-card" data-tags='{{ project.tags | jsonify }}'>
+    <div class="project-card" data-tags='{{ project.tags | jsonify }}'>
         <div class="project-logo-container">
-          <img src="{{ project.logo }}" alt="Logo {{ project.company }}" class="project-logo">
+            <img src="{{ project.logo }}" alt="Logo {{ project.company }}" class="project-logo">
         </div>
         <div class="project-info">
-          <h2 class="project-company">{{ project.company }}</h2>
-          <p class="project-role"><strong>Rol:</strong> {{ project.role }}</p>
-          <a href="{{ project.url | relative_url }}" class="view-project-link">Bekijk Project &rarr;</a>
+            <h2 class="project-company">{{ project.company }}</h2>
+            <p class="project-role"><strong>Rol:</strong> {{ project.role }}</p>
+            <a href="{{ project.url | relative_url }}" class="view-project-link">Bekijk Project &rarr;</a>
         </div>
-      </div>
-    {% empty %}
-      <p class="no-projects">Geen projecten gevonden.</p>
+    </div>
     {% endfor %}
-  </div>
+    {% else %}
+    <p class="no-projects">Geen projecten gevonden.</p>
+    {% endif %}
 </div>
 
 <script>
