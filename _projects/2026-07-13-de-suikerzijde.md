@@ -6,6 +6,8 @@ from-date: 2024-10-13
 to-date: 2026-07-16
 tags:
   - Duurzame Stad
+summary: Als junior projectleider mobiliteit en gebiedsontwikkeling zal ik De
+  Suikerzijde mee helpen ontwikkelen.
 ---
 Als junior projectleider mobiliteit en gebiedsontwikkeling zal ik De Suikerzijde mee helpen ontwikkelen. De Suikerzijde wordt een aantrekkelijk en toekomstgericht stadsdeel. Vlakbij de binnenstad van Groningen, op de plek van de voormalige Suikerfabriek. 
 

@@ -6,6 +6,9 @@ from-date: 2025-11-13
 to-date: 2026-07-16
 tags:
   - Duurzame Stad
+summary: "Binnen Bouwe Foar Fryslân (kleine kernen aanpak) draag ik bij aan het
+  vlot trekken van woningbouwprojecten in kleine kernen, van dorpsinitiatieven
+  tot samenwerking met gemeenten, corporaties en provincie. "
 ---
 # Elke woning telt!
 
