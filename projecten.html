@@ -19,7 +19,7 @@ title: BUS | Projecten
     {% for project in sorted_projects %}
     <div class="project-card" data-tags='{{ project.tags | jsonify }}'>
         <div class="project-logo-container">
-            <img src="{{ project.logo }}" alt="Logo {{ project.company }}" class="project-logo">
+            <img src="{{ site.baseurl }}/{{ project.logo }}" alt="Logo {{ project.company }}" class="project-logo">
         </div>
         <div class="project-info">
             <h2 class="project-company">{{ project.company }}</h2>
