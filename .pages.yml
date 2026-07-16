@@ -62,6 +62,14 @@ content:
         label: Rol in project
         type: string
         required: true
+      - name: from-date
+        label: Begin datum
+        type: date
+        required: true
+      - name: to-date
+        label: Eind datum (leeg = tot heden)
+        type: date
+        required: false
       - name: tags
         label: Categorieën (Tags)
         type: select
@@ -75,14 +83,6 @@ content:
               label: "Water"
             - name: "Duurzame Stad"
               label: "Duurzame Stad"
-      - name: from-date
-        label: Begin datum
-        type: date
-        required: true
-      - name: to-date
-        label: Eind datum (leeg = tot heden)
-        type: date
-        required: false
       - name: body
         label: Project content
         type: rich-text
