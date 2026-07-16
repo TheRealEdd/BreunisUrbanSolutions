@@ -52,6 +52,12 @@ content:
         label: Bedrijf
         type: string
         required: true
+      - name: logo
+        label: Logo bedrijf
+        type: image
+        required: true
+        options:
+          media: blog
       - name: role
         label: Rol in project
         type: string
@@ -77,12 +83,6 @@ content:
         label: Eind datum (leeg = tot heden)
         type: date
         required: false
-      - name: logo
-        label: Logo bedrijf
-        type: image
-        required: true
-        options:
-          media: blog
       - name: body
         label: Project content
         type: rich-text
