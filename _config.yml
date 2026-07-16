@@ -13,3 +13,4 @@ collections:
   projects:
     output: true
     permalink: /projecten/:title/
+    
