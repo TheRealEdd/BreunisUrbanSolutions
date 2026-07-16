@@ -52,6 +52,23 @@ content:
         label: Bedrijf
         type: string
         required: true
+      - name: role
+        label: Rol in project
+        type: string
+        required: true
+      - name: tags
+        label: Categorieën (Tags)
+        type: select
+        required: true
+        options:
+          multiple: true
+          values:
+            - name: "Energie en Mobiliteit"
+              label: "Energie en Mobiliteit"
+            - name: "Water"
+              label: "Water"
+            - name: "Duurzame Stad"
+              label: "Duurzame Stad"
       - name: from-date
         label: Begin datum
         type: date
