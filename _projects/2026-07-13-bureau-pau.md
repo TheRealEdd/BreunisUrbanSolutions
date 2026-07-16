@@ -1,8 +1,11 @@
 ---
 company: Bureau PAU
+logo: /media/blog/logo pau.gif
+role: Assistent-projectleider en kwartiermaker
 from-date: 2024-12-13
 to-date: 2025-10-13
-logo: /media/blog/logo pau.gif
+tags:
+  - Duurzame Stad
 ---
 ![](</media/blog/logo fryslan.svg>)
 
