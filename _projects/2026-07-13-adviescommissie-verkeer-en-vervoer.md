@@ -7,6 +7,8 @@ to-date: 2026-07-16
 tags:
   - Duurzame Stad
   - Energie en Mobiliteit
+summary: Sinds juni 2025 ben ik lid van de AVV, de Adviescommissie Verkeer en
+  Vervoer van de gemeente Groningen.
 ---
 Sinds juni 2025 ben ik lid van de AVV, de Adviescommissie Verkeer en Vervoer van de gemeente Groningen.
 
