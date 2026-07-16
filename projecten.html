@@ -1,0 +1,90 @@
+---
+layout: default
+title: BUS | Projecten
+permalink: /projecten/
+---
+
+<div class="projects-container">
+  <h1>Onze Projecten</h1>
+
+  <div class="filter-navigation">
+    <button class="filter-btn active" data-filter="all">Alles</button>
+    <button class="filter-btn" data-filter="Energie en Mobiliteit">Energie en Mobiliteit</button>
+    <button class="filter-btn" data-filter="Water">Water</button>
+    <button class="filter-btn" data-filter="Duurzame Stad">Duurzame Stad</button>
+  </div>
+
+  <div class="projects-grid">
+    {% assign sorted_projects = site.projects | sort: 'date' | reverse %}
+    {% for project in sorted_projects %}
+      <div class="project-card" data-tags='{{ project.tags | jsonify }}'>
+        <div class="project-logo-container">
+          <img src="{{ project.logo }}" alt="Logo {{ project.company }}" class="project-logo">
+        </div>
+        <div class="project-info">
+          <h2 class="project-company">{{ project.company }}</h2>
+          <p class="project-role"><strong>Rol:</strong> {{ project.role }}</p>
+          <a href="{{ project.url | relative_url }}" class="view-project-link">Bekijk Project &rarr;</a>
+        </div>
+      </div>
+    {% empty %}
+      <p class="no-projects">Geen projecten gevonden.</p>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll(".project-card");
+
+    // 1. Function to apply filter
+    function applyFilter(filterValue) {
+      // Update active state on buttons
+      filterButtons.forEach(btn => {
+        if (btn.getAttribute("data-filter") === filterValue) {
+          btn.classList.add("active");
+        } else {
+          btn.classList.remove("active");
+        }
+      });
+
+      // Show/Hide Cards
+      projectCards.forEach(card => {
+        const cardTags = JSON.parse(card.getAttribute("data-tags") || "[]");
+        
+        if (filterValue === "all" || cardTags.includes(filterValue)) {
+          card.classList.remove("hidden");
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+    }
+
+    // 2. Read filter from URL query param on page load (e.g. /projecten/?tag=Water)
+    const urlParams = new URLSearchParams(window.location.search);
+    const tagParam = urlParams.get('tag');
+
+    if (tagParam) {
+      applyFilter(tagParam);
+    } else {
+      applyFilter("all");
+    }
+
+    // 3. Handle live clicking of filter buttons
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const selectedTag = button.getAttribute("data-filter");
+        
+        // Dynamic clean URL updates without breaking page reload flow
+        const newUrl = selectedTag === "all" 
+          ? window.location.pathname 
+          : `${window.location.pathname}?tag=${encodeURIComponent(selectedTag)}`;
+        
+        window.history.replaceState(null, "", newUrl);
+        
+        applyFilter(selectedTag);
+      });
+    });
+  });
+</script>
