@@ -83,6 +83,10 @@ content:
               label: "Water"
             - name: "Duurzame Stad"
               label: "Duurzame Stad"
+      - name: summary
+        label: In het kort
+        type: text
+        required: true
       - name: body
         label: Project inhoud (in Markdown geschreven)
         type: rich-text
