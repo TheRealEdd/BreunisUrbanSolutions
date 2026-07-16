@@ -1,10 +1,15 @@
+# Site Settings
 name: Breunis Urban Solutions
 url: "https://therealedd.github.io"
 baseurl: "/testingGround"
 
+# Collections Configuration
 collections:
   posts:
     output: true
     permalink: /blog/:title/
   cv:
     output: false
+  projects:
+    output: true
+    permalink: /projecten/:title/
