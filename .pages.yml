@@ -84,7 +84,7 @@ content:
             - name: "Duurzame Stad"
               label: "Duurzame Stad"
       - name: body
-        label: Project content
+        label: Project inhoud (in Markdown geschreven)
         type: rich-text
         required: true
 
