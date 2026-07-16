@@ -1,7 +1,12 @@
 ---
 company: Adviescommissie Verkeer en Vervoer
-from-date: 2025-06-13
 logo: /media/blog/gemeente groningen logo.jpg
+role: VERVANG LATER
+from-date: 2025-06-13
+to-date: 2026-07-16
+tags:
+  - Duurzame Stad
+  - Energie en Mobiliteit
 ---
 Sinds juni 2025 ben ik lid van de AVV, de Adviescommissie Verkeer en Vervoer van de gemeente Groningen.
 
