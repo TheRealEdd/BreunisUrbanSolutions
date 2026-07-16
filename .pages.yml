@@ -52,6 +52,16 @@ content:
         label: Bedrijf
         type: string
         required: true
+      - name: logo
+        label: Logo bedrijf
+        type: image
+        required: true
+        options:
+          media: blog
+      - name: role
+        label: Rol in project
+        type: string
+        required: true
       - name: from-date
         label: Begin datum
         type: date
@@ -60,14 +70,21 @@ content:
         label: Eind datum (leeg = tot heden)
         type: date
         required: false
-      - name: logo
-        label: Logo bedrijf
-        type: image
+      - name: tags
+        label: Categorieën (Tags)
+        type: select
         required: true
         options:
-          media: blog
+          multiple: true
+          values:
+            - name: "Energie en Mobiliteit"
+              label: "Energie en Mobiliteit"
+            - name: "Water"
+              label: "Water"
+            - name: "Duurzame Stad"
+              label: "Duurzame Stad"
       - name: body
-        label: Project content
+        label: Project inhoud (in Markdown geschreven)
         type: rich-text
         required: true
 
