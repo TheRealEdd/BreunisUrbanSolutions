@@ -1,8 +1,12 @@
 ---
 company: Coöperatie Eekerpolder
+logo: /media/blog/Logo-Eekerpolder.svg
+role: VERVANG LATER
 from-date: 2023-04-13
 to-date: 2025-03-13
-logo: /media/blog/Logo-Eekerpolder.svg
+tags:
+  - Water
+  - Energie en Mobiliteit
 ---
 Deze energie coöperatie is aandeelhouder van een krappe 200 hectare zonnepark in Oost Groningen. Dat is, als het gerealiseerd is, het grootste zonnepark van Nederland! Het park wordt natuur inclusief en de financiële opbrengsten gaan onder andere terug de samenleving in door middel van duurzaamheid en leefbaarheid projecten. Dubbel duurzaam dus. 
 
