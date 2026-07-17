@@ -23,6 +23,15 @@ title: Projecten
         </div>
         <div class="project-info">
             <h2 class="project-company">{{ project.company }}</h2>
+            {% if project.to-date %}
+            <p class="post-date">
+                {{ project.from-date | date: "%B %d, %Y" }} tot {{ project.to-date | date: "%B %d, %Y" }}
+            </p>
+            {% else %}
+            <p class="post-date">
+                {{ project.from-date | date: "%B %d, %Y" }}
+            </p>
+            {% endif %}
             <p class="project-role"><strong>Rol:</strong> {{ project.role }}</p>
             <p class="project-summary">{{ project.summary }}</p>
             <a href="{{ project.url | relative_url }}" class="view-project-link">Bekijk Project &rarr;</a>
