@@ -6,42 +6,45 @@ title: Blog
 <div class="blog-container">
   <h1 class="blog-main-title">Welcome to the Blog</h1>
 
-  <!-- 1. FEATURED POST (Newest) -->
-  {% assign newest_post = site.posts | first %}
-  {% if newest_post %}
-  <section class="featured-post-section">
-    <div class="featured-card">
-      <div class="featured-image" style="background-image: url('{{ newest_post.cover | relative_url }}');" role="img" aria-label="{{ newest_post.cover_image_alt }}"></div>
-      <div class="featured-content">
-        <span class="badge">Nieuwste Blog</span>
-        <p class="post-date">{{ newest_post.date | date: "%B %d, %Y" }}</p>
-        <h2 class="post-title">{{ newest_post.title }}</h2>
-        <p class="post-description">{{ newest_post.description }}</p>
-        <a href="{{ newest_post.url | relative_url }}" class="blog-btn">Lees Artikel &rarr;</a>
-      </div>
-    </div>
-  </section>
-  {% endif %}
-
-  <!-- 2. OLDER POSTS GRID (3-Column Layout) -->
-  <section class="blog-grid-section">
-    <h2 class="section-title">Eerdere artikelen</h2>
-    <div class="blog-grid">
-      {% for post in site.posts offset:1 %}
-      <article class="blog-card">
-        <div class="card-image" style="background-image: url('{{ post.cover | relative_url }}');" role="img" aria-label="{{ post.cover_image_alt }}"></div>
-        <div class="card-content">
-          <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
-          <h3 class="post-title">{{ post.title }}</h3>
-          <p class="post-description">{{ post.description }}</p>
-          <a href="{{ post.url | relative_url }}" class="blog-btn secondary">Lees meer</a>
+  {% if site.posts.size > 0 %}
+    
+    <!-- 1. FEATURED POST (Newest) -->
+    {% assign newest_post = site.posts | first %}
+    <section class="featured-post-section">
+      <div class="featured-card">
+        <div class="featured-image" style="background-image: url('{{ newest_post.cover | relative_url }}');" role="img" aria-label="{{ newest_post.cover_image_alt }}"></div>
+        <div class="featured-content">
+          <span class="badge">Nieuwste Blog</span>
+          <p class="post-date">{{ newest_post.date | date: "%B %d, %Y" }}</p>
+          <h2 class="post-title">{{ newest_post.title }}</h2>
+          <p class="post-description">{{ newest_post.description }}</p>
+          <a href="{{ newest_post.url | relative_url }}" class="blog-btn">Lees Artikel &rarr;</a>
         </div>
-      </article>
-      {% empty %}
-        {% unless newest_post %}
-          <p class="no-posts">Er zijn momenteel geen blogberichten.</p>
-        {% endunless %}
-      {% endfor %}
-    </div>
-  </section>
+      </div>
+    </section>
+
+    <!-- 2. OLDER POSTS GRID (3-Column Layout) -->
+    {% if site.posts.size > 1 %}
+    <section class="blog-grid-section">
+      <h2 class="section-title">Eerdere artikelen</h2>
+      <div class="blog-grid">
+        {% for post in site.posts offset:1 %}
+        <article class="blog-card">
+          <div class="card-image" style="background-image: url('{{ post.cover | relative_url }}');" role="img" aria-label="{{ post.cover_image_alt }}"></div>
+          <div class="card-content">
+            <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
+            <h3 class="post-title">{{ post.title }}</h3>
+            <p class="post-description">{{ post.description }}</p>
+            <a href="{{ post.url | relative_url }}" class="blog-btn secondary">Lees meer</a>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+  {% else %}
+    <!-- Fallback if there are absolutely no posts -->
+    <p class="no-posts">Er zijn momenteel geen blogberichten.</p>
+  {% endif %}
 </div>
