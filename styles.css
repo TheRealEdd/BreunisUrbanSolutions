@@ -1232,6 +1232,221 @@ h3 {
 
 
 
+
+/* BLOG OVERVIEW PAGE */
+
+/* Container */
+.blog-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.blog-main-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 2.5rem;
+  border-bottom: 2px solid #f3f4f6;
+  padding-bottom: 1rem;
+}
+
+/* Common Post Typography */
+.post-date {
+  font-size: 0.875rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.post-title {
+  color: #111827;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.post-description {
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Buttons */
+.blog-btn {
+  display: inline-block;
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.blog-btn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.blog-btn.secondary {
+  background-color: transparent;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+  padding: 0.6rem 1.25rem;
+  text-align: center;
+}
+
+.blog-btn.secondary:hover {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   1. FEATURED CARD (Newest Post)
+   ========================================================================== */
+.featured-post-section {
+  margin-bottom: 4rem;
+}
+
+.featured-card {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* Split visual weight */
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  min-height: 400px;
+}
+
+.featured-image {
+  background-size: cover;
+  background-position: center;
+  min-height: 300px;
+}
+
+.featured-content {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featured-content .badge {
+  align-self: flex-start;
+  background-color: #eff6ff;
+  color: #2563eb;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+}
+
+.featured-content .post-title {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.featured-content .post-description {
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   2. BLOG GRID (Older Posts)
+   ========================================================================== */
+.blog-grid-section .section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.blog-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-content .post-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.card-content .post-description {
+  font-size: 0.95rem;
+  flex-grow: 1; /* Pushes the button to the bottom so cards look uniform */
+}
+
+/* ==========================================================================
+   3. RESPONSIVE DESIGN (Media Queries)
+   ========================================================================== */
+@media (max-width: 900px) {
+  .featured-card {
+    grid-template-columns: 1fr; /* Stack visually on tablets and small screens */
+  }
+  
+  .featured-image {
+    height: 250px;
+  }
+  
+  .featured-content {
+    padding: 1.75rem;
+  }
+  
+  .featured-content .post-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .blog-main-title {
+    font-size: 2rem;
+  }
+  
+  .blog-grid {
+    grid-template-columns: 1fr; /* Single column on mobile devices */
+  }
+}
+
+
+
 /* RESPONSIVE */
 
 @media (max-width: 900px) {

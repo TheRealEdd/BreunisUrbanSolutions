@@ -3,16 +3,45 @@ layout: default
 title: Blog
 ---
 
+<div class="blog-container">
+  <h1 class="blog-main-title">Welcome to the Blog</h1>
 
-<h1>Welcome to the Blog</h1>
+  <!-- 1. FEATURED POST (Newest) -->
+  {% assign newest_post = site.posts | first %}
+  {% if newest_post %}
+  <section class="featured-post-section">
+    <div class="featured-card">
+      <div class="featured-image" style="background-image: url('{{ newest_post.cover | relative_url }}');" role="img" aria-label="{{ newest_post.cover_image_alt }}"></div>
+      <div class="featured-content">
+        <span class="badge">Nieuwste Blog</span>
+        <p class="post-date">{{ newest_post.date | date: "%B %d, %Y" }}</p>
+        <h2 class="post-title">{{ newest_post.title }}</h2>
+        <p class="post-description">{{ newest_post.description }}</p>
+        <a href="{{ newest_post.url | relative_url }}" class="blog-btn">Lees Artikel &rarr;</a>
+      </div>
+    </div>
+  </section>
+  {% endif %}
 
-<!-- This is the loop that Jekyll uses to automatically list your posts -->
-<ul class="blog-list">
-  {% for post in site.posts %}
-  <li>
-    <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-    <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
-    <p>{{ post.description }}</p>
-  </li>
-  {% endfor %}
-</ul>
+  <!-- 2. OLDER POSTS GRID (3-Column Layout) -->
+  <section class="blog-grid-section">
+    <h2 class="section-title">Eerdere artikelen</h2>
+    <div class="blog-grid">
+      {% for post in site.posts offset:1 %}
+      <article class="blog-card">
+        <div class="card-image" style="background-image: url('{{ post.cover | relative_url }}');" role="img" aria-label="{{ post.cover_image_alt }}"></div>
+        <div class="card-content">
+          <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
+          <h3 class="post-title">{{ post.title }}</h3>
+          <p class="post-description">{{ post.description }}</p>
+          <a href="{{ post.url | relative_url }}" class="blog-btn secondary">Lees meer</a>
+        </div>
+      </article>
+      {% empty %}
+        {% unless newest_post %}
+          <p class="no-posts">Er zijn momenteel geen blogberichten.</p>
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </section>
+</div>
