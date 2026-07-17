@@ -1,3 +1,3 @@
 ---
-cv_file: /media/cv/CV Edward Rocca Januari 2026 compressed.pdf
+cv_file: /media/cv/CV 15.07.26.pdf
 ---
