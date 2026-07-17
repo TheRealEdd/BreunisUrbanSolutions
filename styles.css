@@ -758,10 +758,13 @@ h3 {
     padding: 2rem 1.5rem;
     display: flex;
     flex-direction: column;
+    max-width: 1200px;
+    margin: auto;
 }
 
 /* Centered Header elements */
 .post-content > h1,
+.post-content > .project-role,
 .post-content > .post-date {
     width: 100%;
     max-width: 750px;
