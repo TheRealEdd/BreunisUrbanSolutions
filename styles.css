@@ -1276,34 +1276,59 @@ h3 {
 
 /* Buttons */
 .blog-btn {
-  display: inline-block;
-  background-color: #2563eb;
-  color: #ffffff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+    font-family: "Passion One", sans-serif;
+    font-size: 2rem;
+    color: var(--charcoal);
+    background: var(--yellow);
+    text-decoration: none;
+    margin: 2rem 1rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 999px;
+    font-weight: 600;
+    letter-spacing: 0.02rem;
+    box-shadow: -0.4rem 0.4rem 0 var(--charcoal);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .blog-btn:hover {
-  background-color: #1d4ed8;
-  transform: translateY(-1px);
+    transform: translate(0.2rem, -0.2rem);
+    box-shadow: -0.6rem 0.6rem 0 var(--charcoal);
+    cursor: pointer;
+}
+
+.blog-btn:active {
+    transform: translate(-0.2rem, 0.2rem);
+    box-shadow: -0.2rem 0.2rem 0 var(--charcoal);
 }
 
 .blog-btn.secondary {
-  background-color: transparent;
-  color: #2563eb;
-  border: 2px solid #2563eb;
-  padding: 0.6rem 1.25rem;
-  text-align: center;
+    font-family: "Passion One", sans-serif;
+    font-size: 2rem;
+    color: var(--charcoal);
+    background: var(--white);
+    text-decoration: none;
+    margin: 2rem 1rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 999px;
+    font-weight: 600;
+    letter-spacing: 0.02rem;
+    box-shadow: -0.4rem 0.4rem 0 var(--charcoal);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .blog-btn.secondary:hover {
-  background-color: #2563eb;
-  color: #ffffff;
+    transform: translate(0.2rem, -0.2rem);
+    box-shadow: -0.6rem 0.6rem 0 var(--charcoal);
+    cursor: pointer;
 }
+
+.blog-btn.secondary:active {
+    transform: translate(-0.2rem, 0.2rem);
+    box-shadow: -0.2rem 0.2rem 0 var(--charcoal);
+}
+
 
 /* ==========================================================================
    1. FEATURED CARD (Newest Post)
