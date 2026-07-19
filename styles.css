@@ -791,23 +791,25 @@ h3 {
 .post-thumbnail {
     align-self: center;
     width: 100%;
-    max-width: 1000px; /* Sweeter spot for cover image width */
+    max-width: 750px; /* Sweeter spot for cover image width */
     margin-bottom: 4rem;
     position: relative;
+    padding: 40px;
+    background: var(--cream);
+    border: 5px solid var(--blue);
+    border-radius: 3rem;
+    filter: drop-shadow(var(--blue) 2rem 2rem);
 }
 
 .post-thumbnail img {
     display: block;      /* Removes the default inline baseline gap below images */
     width: 100%;         /* Forces the image to fill the .post-thumbnail width */
     height: auto;        /* Maintains the proper aspect ratio while scaling */
-    border: 5px solid var(--blue);
-    border-radius: 3rem;
     
     /* WARNING ON DROP-SHADOW: 
        A 2rem (32px) offset is quite large. If the image scales down on mobile,
        this huge shadow will push outside the screen and cause horizontal scrolling.
     */
-    filter: drop-shadow(var(--blue) 2rem 2rem);
 }
 
 
