@@ -101,7 +101,7 @@ function drawRoute() {
     // 🎛️ CONFIGURATION VARIABLES
     // ==========================================
     const CORNER_RADIUS = 45; // Smoothness of the 90-degree tube bends
-    const FINAL_DROP = 0;     // Line turns left exactly at the final element boundary
+    const FINAL_DROP = 60;     // Line turns left exactly at the final element boundary
 
     // Clear previous vector drawings on resize/reload
     svg.innerHTML = "";
@@ -121,14 +121,23 @@ function drawRoute() {
         const anchor = el.querySelector(".route-anchor");
         const targetRect = anchor ? anchor.getBoundingClientRect() : el.getBoundingClientRect();
 
-        const x = targetRect.left + targetRect.width / 2 - sectionRect.left;
-        const y = targetRect.top + targetRect.height / 2 - sectionRect.top;
-        const hasCircle = el.getAttribute("data-circle") === "true";
+        // Calculate standard center coordinates
+        let x = targetRect.left + targetRect.width / 2 - sectionRect.left;
+        let y = targetRect.top + targetRect.height / 2 - sectionRect.top;
+        
+        // ONLY apply the right-edge wrap to the very last element
+        const isLastElement = allElements === allElements.length - 1;
+        
+        if (isLastElement) {
+            const paddingOffset = 20; // Extra clearance outside the card boundary
+            
+            // Use the FULL ARTICLE's right edge instead of the inner anchor
+            x = containerRect.right - sectionRect.left + paddingOffset;
+        }
 
+        const hasCircle = el.getAttribute("data-circle") === "true";
         points.push({ x, y, circle: hasCircle });
     });
-
-    if (points.length === 0) return;
 
     // 3. Generate a strict rectangular/orthogonal grid vertex array
     const vertices = [];
@@ -139,12 +148,10 @@ function drawRoute() {
         const curr = points[i];
 
         if (i === 1) {
-            // FIRST TRANSITION: Exit the start element horizontally to the side immediately
             if (prev.x !== curr.x) {
                 vertices.push({ x: curr.x, y: prev.y });
             }
         } else {
-            // INTERMEDIATE TRANSITIONS: Use the vertical midpoint to clear elements safely
             const midY = (prev.y + curr.y) / 2;
             if (prev.x !== curr.x) {
                 vertices.push({ x: prev.x, y: midY });
@@ -154,51 +161,53 @@ function drawRoute() {
         vertices.push({ x: curr.x, y: curr.y });
     }
 
-    // END OF LINE SYSTEM: Wrap around the bottom element, then fire off-screen left
+    // ==========================================
+    // 🛠️ FIX FOR THE FINAL OFF-SCREEN TURN
+    // ==========================================
     const lastPoint = points[points.length - 1];
-    vertices.push({ x: lastPoint.x, y: lastPoint.y + FINAL_DROP });
-    vertices.push({ x: -1000, y: lastPoint.y + FINAL_DROP }); // Extends past the left SVG view boundary
+
+    if (FINAL_DROP > 0) {
+        // If there's a drop down before turning left:
+        const cornerY = lastPoint.y + FINAL_DROP;
+        vertices.push({ x: lastPoint.x, y: cornerY }); // Turn point
+        vertices.push({ x: -1000, y: cornerY });       // Exit off-screen
+    } else {
+        // If turning left directly from the last anchor:
+        vertices.push({ x: -1000, y: lastPoint.y });   // Exit off-screen
+    }
 
     // 4. Trace vertices and inject controlled rounded curves at sharp intersections
     let pathString = `M ${vertices[0].x} ${vertices[0].y}`;
 
-    // Loops until the second-to-last vertex so pNext targets the final destination point (-1000)
     for (let i = 1; i < vertices.length - 1; i++) {
         const pPrev = vertices[i - 1];
         const pCurr = vertices[i];
         const pNext = vertices[i + 1];
 
-        // Measure surrounding segment lengths
         const len1 = Math.hypot(pCurr.x - pPrev.x, pCurr.y - pPrev.y);
         const len2 = Math.hypot(pNext.x - pCurr.x, pNext.y - pCurr.y);
 
-        // Safety catch: ensures the radius shrinks automatically if items are tightly packed
         const actualR = Math.min(CORNER_RADIUS, len1 / 2, len2 / 2);
-
-        // Check if this vertex actually forms a corner (is not a straight line)
         const isCorner = (pPrev.x !== pNext.x) && (pPrev.y !== pNext.y);
 
         if (actualR > 0 && isCorner) {
-            // Find Point A (where the line starts breaking into the curve)
             const dirX1 = Math.sign(pCurr.x - pPrev.x);
             const dirY1 = Math.sign(pCurr.y - pPrev.y);
             const ax = pCurr.x - dirX1 * actualR;
             const ay = pCurr.y - dirY1 * actualR;
 
-            // Find Point B (where the curve terminates back into a straight line)
             const dirX2 = Math.sign(pNext.x - pCurr.x);
             const dirY2 = Math.sign(pNext.y - pCurr.y);
             const bx = pCurr.x + dirX2 * actualR;
             const by = pCurr.y + dirY2 * actualR;
 
-            // Draw straight to the curve entry point, then arc cleanly around the corner vertex
             pathString += ` L ${ax} ${ay} Q ${pCurr.x} ${pCurr.y} ${bx} ${by}`;
         } else {
             pathString += ` L ${pCurr.x} ${pCurr.y}`;
         }
     }
 
-    // Seal the vector path: Draw from the curve exit directly out to the off-screen left point
+    // Seal the vector path out off-screen
     const lastV = vertices[vertices.length - 1];
     pathString += ` L ${lastV.x} ${lastV.y}`;
 

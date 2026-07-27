@@ -74,6 +74,7 @@ h3 {
     display: inline-flex;
     align-items: center;
     margin-top: 1.5rem;
+    min-width: 207px;
 }
 
 .page-button a{
@@ -517,7 +518,7 @@ h3 {
 .projects {
     position: relative;
     padding: 2rem 8%;
-    max-width: 2000px;
+    max-width: 1500px;
     margin: auto;
 }
 
@@ -544,6 +545,20 @@ h3 {
     gap: 4rem;
     align-items: center;
     margin: 4rem 0;
+}
+
+#line-stop-4 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding-top: 4rem;
+    /* margin-top: 8rem; */
+}
+
+#molens {
+    width: 50%;
+    /* padding: 2rem 0; */
 }
 
 .project-content {
@@ -583,7 +598,7 @@ h3 {
 .bottom {
     position: absolute;
     bottom: 0;
-    top: auto !important; /* Overrides the top: 50% from other classes */
+    /* top: auto !important; */
     left: 50%;
     transform: translateX(-50%);
 }
@@ -591,6 +606,8 @@ h3 {
 .line-illustration {
     z-index: 1;
 }
+
+
 
 .project-image-container {
     height: 40vw;
