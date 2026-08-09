@@ -13,7 +13,12 @@ title: Projecten
         <button class="filter-btn" data-filter="Duurzame Stad">Duurzame Stad</button>
     </div>
 
-    {% assign sorted_projects = site.projects | sort: "from-date" | reverse %}
+    {% comment %} --- Split into Ongoing and Completed Projects --- {% endcomment %}
+    {% assign ongoing_projects = site.projects | where_exp: "item", "item.to-date == nil or item.to-date == ''" | sort: "from-date" | reverse %}
+    {% assign completed_projects = site.projects | where_exp: "item", "item.to-date != nil and item.to-date != ''" | sort: "to-date" | reverse %}
+
+    {% comment %} --- Combine Arrays: Ongoing First, Completed Second --- {% endcomment %}
+    {% assign sorted_projects = ongoing_projects | concat: completed_projects %}
 
     {% if sorted_projects.size > 0 %}
     {% for project in sorted_projects %}
