@@ -13,25 +13,68 @@ title: Projecten
         <button class="filter-btn" data-filter="Duurzame Stad">Duurzame Stad</button>
     </div>
 
-    {% assign sorted_projects = site.projects | sort: "date" | reverse %}
+    {% assign sorted_projects = site.projects | sort: "from-date" | reverse %}
 
     {% if sorted_projects.size > 0 %}
     {% for project in sorted_projects %}
+
+    {% comment %} --- Dutch Month Name Mapping --- {% endcomment %}
+    {% assign start_m = project.from-date | date: "%m" %}
+    {% assign start_d = project.from-date | date: "%d" %}
+    {% assign start_y = project.from-date | date: "%Y" %}
+
+    {% case start_m %}
+        {% when "01" %}{% assign start_month_nl = "januari" %}
+        {% when "02" %}{% assign start_month_nl = "februari" %}
+        {% when "03" %}{% assign start_month_nl = "maart" %}
+        {% when "04" %}{% assign start_month_nl = "april" %}
+        {% when "05" %}{% assign start_month_nl = "mei" %}
+        {% when "06" %}{% assign start_month_nl = "juni" %}
+        {% when "07" %}{% assign start_month_nl = "juli" %}
+        {% when "08" %}{% assign start_month_nl = "augustus" %}
+        {% when "09" %}{% assign start_month_nl = "september" %}
+        {% when "10" %}{% assign start_month_nl = "oktober" %}
+        {% when "11" %}{% assign start_month_nl = "november" %}
+        {% when "12" %}{% assign start_month_nl = "december" %}
+    {% endcase %}
+
+    {% if project.to-date %}
+        {% assign end_m = project.to-date | date: "%m" %}
+        {% assign end_d = project.to-date | date: "%d" %}
+        {% assign end_y = project.to-date | date: "%Y" %}
+
+        {% case end_m %}
+            {% when "01" %}{% assign end_month_nl = "januari" %}
+            {% when "02" %}{% assign end_month_nl = "februari" %}
+            {% when "03" %}{% assign end_month_nl = "maart" %}
+            {% when "04" %}{% assign end_month_nl = "april" %}
+            {% when "05" %}{% assign end_month_nl = "mei" %}
+            {% when "06" %}{% assign end_month_nl = "juni" %}
+            {% when "07" %}{% assign end_month_nl = "juli" %}
+            {% when "08" %}{% assign end_month_nl = "augustus" %}
+            {% when "09" %}{% assign end_month_nl = "september" %}
+            {% when "10" %}{% assign end_month_nl = "oktober" %}
+            {% when "11" %}{% assign end_month_nl = "november" %}
+            {% when "12" %}{% assign end_month_nl = "december" %}
+        {% endcase %}
+    {% endif %}
+
     <div class="project-card" data-tags='{{ project.tags | jsonify }}'>
         <div class="project-logo-container">
             <img src="{{ site.baseurl }}/{{ project.logo }}" alt="Logo {{ project.company }}" class="project-logo">
         </div>
         <div class="project-info">
             <h2 class="project-company">{{ project.company }}</h2>
-            {% if project.to-date %}
+            
             <p class="post-date">
-                {{ project.from-date | date: "%B %d, %Y" }} tot {{ project.to-date | date: "%B %d, %Y" }}
+                {{ start_d }} {{ start_month_nl }} {{ start_y }} tot 
+                {% if project.to-date %}
+                    {{ end_d }} {{ end_month_nl }} {{ end_y }}
+                {% else %}
+                    heden
+                {% endif %}
             </p>
-            {% else %}
-            <p class="post-date">
-                {{ project.from-date | date: "%B %d, %Y" }}
-            </p>
-            {% endif %}
+
             <p class="project-role"><strong>Rol:</strong> {{ project.role }}</p>
             <p class="project-summary">{{ project.summary }}</p>
             <a href="{{ project.url | relative_url }}" class="view-project-link">Bekijk Project &rarr;</a>
