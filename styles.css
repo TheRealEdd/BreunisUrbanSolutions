@@ -1301,6 +1301,7 @@ h3 {
     color: var(--charcoal);
     background: var(--yellow);
     text-decoration: none;
+    text-align: center;
     margin: 2rem 1rem;
     padding: 1rem;
     border: none;
@@ -1324,9 +1325,7 @@ h3 {
 
 .blog-btn.secondary {
     font-family: "Passion One", sans-serif;
-    font-size: 2rem;
-    color: var(--charcoal);
-    background: var(--white);
+    font-size: 1.8rem;
     text-decoration: none;
     margin: 2rem 1rem;
     padding: 1rem;
