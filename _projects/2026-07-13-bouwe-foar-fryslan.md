@@ -3,7 +3,6 @@ company: Bouwe Foar Fryslân
 logo: /media/blog/thumbnail_Logo-UKK (1).webp
 role: VERVANG LATER
 from-date: 2025-11-13
-to-date: 2026-07-16
 tags:
   - Duurzame Stad
 summary: "Binnen Bouwe Foar Fryslân (kleine kernen aanpak) draag ik bij aan het
