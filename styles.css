@@ -611,6 +611,7 @@ h3 {
 
 .project-image-container {
     height: 40vw;
+    width: 40vw;
     max-height: 400px;
     max-width: 400px;
     border-radius: 3rem;
