@@ -150,78 +150,102 @@ title: Home
 </section>
 
 
+```html
 <section id="quotes" class="quotes">
   <div class="quotes__inner">
     <h2>Hoe anderen hun rit ervaarden</h2>
 
-    <div class="quotes__carousel" data-quotes-carousel>
-      <div class="quotes__slides">
-        {% assign quotes = site.quotes | sort: "quote-date" | reverse %}
+    {% assign quotes = site.quotes | sort: "quote-date" | reverse %}
 
-        {% for item in quotes %}
-          <article class="quotes__slide{% if forloop.first %} is-active{% endif %}">
-            <span class="quotes__mark" aria-hidden="true">“</span>
+    {% if quotes.size > 0 %}
+      <div class="quotes__carousel" data-quotes-carousel>
 
-            <blockquote class="quotes__text">
-              {{ item.quote }}
-            </blockquote>
-
-            <p class="quotes__author">
-              {{ item.quote-name }}, 
-              {% assign month = item.quote-date | date: "%m" %}
-              {% case month %}
-                {% when "01" %}januari
-                {% when "02" %}februari
-                {% when "03" %}maart
-                {% when "04" %}april
-                {% when "05" %}mei
-                {% when "06" %}juni
-                {% when "07" %}juli
-                {% when "08" %}augustus
-                {% when "09" %}september
-                {% when "10" %}oktober
-                {% when "11" %}november
-                {% when "12" %}december
-              {% endcase %}
-              {{ item.quote-date | date: "%Y" }}
-            </p>
-          </article>
-        {% endfor %}
-      </div>
-
-      <div class="quotes__controls">
-        <button
-          type="button"
-          class="quotes__button quotes__button--prev"
-          aria-label="Vorige quote"
-          data-quotes-prev
-        >
-          ←
-        </button>
-
-        <div class="quotes__dots" data-quotes-dots>
+        <div class="quotes__slides">
           {% for item in quotes %}
-            <button
-              type="button"
-              class="quotes__dot{% if forloop.first %} is-active{% endif %}"
-              aria-label="Ga naar quote {{ forloop.index }}"
-              data-quotes-dot="{{ forloop.index0 }}"
-            ></button>
+            <article class="quotes__slide{% if forloop.first %} is-active{% endif %}">
+              <span class="quotes__mark" aria-hidden="true">“</span>
+
+              <blockquote class="quotes__text">
+                {{ item.quote }}
+              </blockquote>
+
+              <div class="quotes__author">
+                <span class="quotes__name">
+                  {{ item.quote-name }}
+                </span>
+
+                <span class="quotes__date">
+                  {% assign month = item.quote-date | date: "%m" %}
+                  {% case month %}
+                    {% when "01" %}januari
+                    {% when "02" %}februari
+                    {% when "03" %}maart
+                    {% when "04" %}april
+                    {% when "05" %}mei
+                    {% when "06" %}juni
+                    {% when "07" %}juli
+                    {% when "08" %}augustus
+                    {% when "09" %}september
+                    {% when "10" %}oktober
+                    {% when "11" %}november
+                    {% when "12" %}december
+                  {% endcase %}
+                  {{ item.quote-date | date: "%Y" }}
+                </span>
+              </div>
+            </article>
           {% endfor %}
         </div>
 
-        <button
-          type="button"
-          class="quotes__button quotes__button--next"
-          aria-label="Volgende quote"
-          data-quotes-next
-        >
-          →
-        </button>
+        {% if quotes.size > 1 %}
+          <div class="quotes__controls">
+
+            <button
+              type="button"
+              class="quotes__button quotes__button--prev"
+              aria-label="Vorige quote"
+              data-quotes-prev
+            >
+              <img
+                src="media/SVG/arrow.svg"
+                class="quote-arrow quote-arrow--prev"
+                alt=""
+              >
+            </button>
+
+            <div class="quotes__dots" data-quotes-dots>
+              {% for item in quotes %}
+                <button
+                  type="button"
+                  class="quotes__dot{% if forloop.first %} is-active{% endif %}"
+                  aria-label="Ga naar quote {{ forloop.index }}"
+                  data-quotes-dot="{{ forloop.index0 }}"
+                ></button>
+              {% endfor %}
+            </div>
+
+            <button
+              type="button"
+              class="quotes__button quotes__button--next"
+              aria-label="Volgende quote"
+              data-quotes-next
+            >
+              <img
+                src="media/SVG/arrow.svg"
+                class="quote-arrow quote-arrow--next"
+                alt=""
+              >
+            </button>
+
+          </div>
+        {% endif %}
+
       </div>
-    </div>
+    {% endif %}
   </div>
-</section> 
+</section>
+```
+
 
 
 

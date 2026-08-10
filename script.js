@@ -175,35 +175,103 @@ document.querySelectorAll('[data-quotes-carousel]').forEach((carousel) => {
   const nextButton = carousel.querySelector('[data-quotes-next]');
 
   if (slides.length <= 1) {
-    carousel.querySelector('.quotes__controls')?.remove();
     return;
   }
 
   let currentIndex = 0;
+  let isAnimating = false;
 
-  function showSlide(index) {
-    currentIndex = (index + slides.length) % slides.length;
+  function showSlide(newIndex, direction) {
+    if (isAnimating || newIndex === currentIndex) {
+      return;
+    }
 
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('is-active', i === currentIndex);
+    isAnimating = true;
+
+    const currentSlide = slides[currentIndex];
+    const nextSlide = slides[newIndex];
+
+    /*
+     * Next:
+     * current moves left
+     * new comes in from right
+     *
+     * Previous:
+     * current moves right
+     * new comes in from left
+     */
+
+    const enterClass =
+      direction === 'next'
+        ? 'is-entering-right'
+        : 'is-entering-left';
+
+    const leaveClass =
+      direction === 'next'
+        ? 'is-leaving-left'
+        : 'is-leaving-right';
+
+    // Prepare the incoming slide
+    nextSlide.classList.add(enterClass);
+    nextSlide.classList.add('is-active');
+
+    // Force the browser to register the starting position
+    requestAnimationFrame(() => {
+      currentSlide.classList.add(leaveClass);
+      nextSlide.classList.remove(enterClass);
+
+      dots[currentIndex].classList.remove('is-active');
+      dots[newIndex].classList.add('is-active');
+
+      currentIndex = newIndex;
     });
 
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('is-active', i === currentIndex);
-    });
+    // Clean up after the animation
+    setTimeout(() => {
+      slides.forEach((slide, index) => {
+        if (index !== currentIndex) {
+          slide.classList.remove(
+            'is-active',
+            'is-entering-left',
+            'is-entering-right',
+            'is-leaving-left',
+            'is-leaving-right'
+          );
+        }
+      });
+
+      isAnimating = false;
+    }, 450);
   }
 
   previousButton.addEventListener('click', () => {
-    showSlide(currentIndex - 1);
+    const newIndex =
+      (currentIndex - 1 + slides.length) % slides.length;
+
+    showSlide(newIndex, 'previous');
   });
 
   nextButton.addEventListener('click', () => {
-    showSlide(currentIndex + 1);
+    const newIndex =
+      (currentIndex + 1) % slides.length;
+
+    showSlide(newIndex, 'next');
   });
 
   dots.forEach((dot) => {
     dot.addEventListener('click', () => {
-      showSlide(Number(dot.dataset.quotesDot));
+      const newIndex = Number(dot.dataset.quotesDot);
+
+      if (newIndex === currentIndex) {
+        return;
+      }
+
+      const direction =
+        newIndex > currentIndex
+          ? 'next'
+          : 'previous';
+
+      showSlide(newIndex, direction);
     });
   });
 });
