@@ -266,6 +266,7 @@ h3 {
 /* --- Footer Illustration --- */
 .footer-illustration {
   background: var(--blue);
+  padding-top: 32px;
 }
 
 
