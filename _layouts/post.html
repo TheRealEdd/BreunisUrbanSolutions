@@ -9,15 +9,21 @@
 </head>
 <body>
 
-    <header>
+    <header class="site-header" id="site-header">
         <nav class="navbar">
             <div class="logo">
                 <a href="{{ site.baseurl }}/index.html">
-                    <img src="{{ site.baseurl }}/media/BUS-logo.svg" alt="BUS Logo" class="logo">
+                    <img src="{{ site.baseurl }}/media/BUS-logo.svg" alt="BUS Logo" class="logo-img">
                 </a>
             </div>
 
-            <ul class="nav-links">
+            <button class="hamburger-toggle" id="hamburger-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="nav-links">
                 <li><a href="{{ site.baseurl }}/projecten.html">Projecten</a></li>
                 <li><a href="{{ site.baseurl }}/blog.html">Blog</a></li>
                 <li><a href="{{ site.baseurl }}/contact.html" id="nav-contact-btn">Contact</a></li>

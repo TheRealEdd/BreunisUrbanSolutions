@@ -9,18 +9,24 @@
 </head>
 <body>
 
-    <header>
+    <header class="site-header" id="site-header">
         <nav class="navbar">
             <div class="logo">
-                <a href="{{ '/index.html' | relative_url }}">
-                    <img src="{{ '/media/BUS-logo.svg' | relative_url }}" alt="BUS Logo" class="logo">
+                <a href="{{ site.baseurl }}/index.html">
+                    <img src="{{ site.baseurl }}/media/BUS-logo.svg" alt="BUS Logo" class="logo-img">
                 </a>
             </div>
 
-            <ul class="nav-links">
-                <li><a href="{{ '/projecten.html' | relative_url }}">Projecten</a></li>
-                <li><a href="{{ '/blog.html' | relative_url }}">Blog</a></li>
-                <li><a href="{{ '/contact.html' | relative_url }}" id="nav-contact-btn">Contact</a></li>
+            <button class="hamburger-toggle" id="hamburger-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="{{ site.baseurl }}/projecten.html">Projecten</a></li>
+                <li><a href="{{ site.baseurl }}/blog.html">Blog</a></li>
+                <li><a href="{{ site.baseurl }}/contact.html" id="nav-contact-btn">Contact</a></li>
             </ul>
         </nav>
     </header>
