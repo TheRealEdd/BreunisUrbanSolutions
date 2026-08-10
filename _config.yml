@@ -1,7 +1,7 @@
 # Site Settings
 name: Breunis Urban Solutions
-url: "https://breunisurbansolutions.nl"
-baseurl: ""
+url: "https://therealedd.github.io"
+baseurl: "/testingGround"
 
 # Collections Configuration
 collections:

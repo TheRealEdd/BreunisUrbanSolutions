@@ -262,6 +262,21 @@ h3 {
   color: var(--blue); /* Transitions to LinkedIn blue on hover */
 }
 
+
+/* --- Footer Illustration --- */
+.footer-illustration {
+  background: linear-gradient(var(--blue), #ffffff00);
+}
+
+.footer-illustration img {
+  display: block;
+  margin: 0 auto;           /* centers horizontally */
+  width: 100%;
+  max-width: 1000px;       /* caps size */
+  height: auto;
+}
+
+
 /* --- Footer Title --- */
 .footer-header {
   max-width: 1200px;
