@@ -1881,16 +1881,7 @@ h3 {
         border-width: 0.75rem;
         padding: 0.75rem 0;
     }
-
-    /* Navigation */
-    .navbar {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1.5rem;
-        padding: 1rem 3%;
-    }
-
+    
     .nav-links {
         gap: 1.5rem;
         flex-wrap: wrap;
