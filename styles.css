@@ -265,7 +265,7 @@ h3 {
 
 /* --- Footer Illustration --- */
 .footer-illustration {
-  background: linear-gradient(var(--blue), #ffffff00);
+  background: linear-gradient(#ffffff00, var(--blue));
 }
 
 .footer-illustration img {
