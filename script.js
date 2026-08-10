@@ -1,3 +1,49 @@
+const header = document.getElementById('site-header');
+const toggleBtn = document.getElementById('hamburger-toggle');
+const navLinks = document.getElementById('nav-links');
+
+let lastScrollY = window.scrollY;
+
+// Mobile Hamburger Menu Toggle
+toggleBtn.addEventListener('click', () => {
+    const isOpen = toggleBtn.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    toggleBtn.setAttribute('aria-expanded', isOpen);
+});
+
+// Close menu when clicking a link
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        toggleBtn.classList.remove('active');
+        navLinks.classList.remove('active');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+    });
+});
+
+// Smart Scroll-Hide Behavior (Mobile-Focused)
+window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+
+    // Keep header visible when scrolled to top or when mobile menu is open
+    if (currentScrollY <= 20 || navLinks.classList.contains('active')) {
+        header.classList.remove('header-hidden');
+        lastScrollY = currentScrollY;
+        return;
+    }
+
+    // Scroll Down -> Hide Header | Scroll Up -> Reveal Header
+    if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        header.classList.add('header-hidden');
+    } else if (currentScrollY < lastScrollY) {
+        header.classList.remove('header-hidden');
+    }
+
+    lastScrollY = currentScrollY;
+}, { passive: true });
+
+
+
+
 // Route Drawing
 function drawRoute() {
     const svg = document.getElementById("route-svg");

@@ -180,6 +180,108 @@ h3 {
     box-shadow: -0.2rem 0.2rem 0 var(--charcoal);
 }
 
+
+/* ==========================================================================
+   SMOOTH STICKY HEADER & RESPONSIVE HAMBURGER MENU
+   ========================================================================== */
+
+/* Header Base Styling with Smooth Transform Transition */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--cream);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Class toggled via JS when scrolling down on mobile */
+.site-header.header-hidden {
+    transform: translateY(-100%);
+}
+
+.hamburger-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 1.75rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 101;
+}
+
+.hamburger-toggle span {
+    width: 100%;
+    height: 0.25rem;
+    background-color: var(--charcoal);
+    border-radius: 4px;
+    transform-origin: 1px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.2s linear,
+                background-color 0.3s ease;
+}
+
+/* --- Mobile Breakpoint (max-width: 600px) --- */
+@media (max-width: 600px) {
+    /* Scale down the logo height to save vertical reading space */
+    .logo img {
+        height: 3.5rem;
+        transition: height 0.3s ease;
+    }
+
+    .hamburger-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--cream);
+        border-bottom: 0.4rem solid var(--blue);
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 2rem 1rem;
+        
+        /* Subtle Fade & Slide Down Overlay */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-1rem);
+        transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                    visibility 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    /* Subtle Morphing Animation for Hamburger to Close (X) */
+    .hamburger-toggle.active span:nth-child(1) {
+        transform: rotate(45deg);
+    }
+
+    .hamburger-toggle.active span:nth-child(2) {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+
+    .hamburger-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+
+    #nav-contact-btn {
+        padding: 0.5rem 2rem;
+    }
+}
+
 /* FOOTER */
 
 /* --- Footer Container Reset & Base Styling --- */
@@ -1964,7 +2066,7 @@ h3 {
 
     /* Blog / Post Content Adjustments */
     .post-content {
-        padding: 1rem 0.5rem;
+        padding: 1rem 1rem;
     }
 
     .post-thumbnail {
@@ -2078,7 +2180,7 @@ h3 {
 @media (max-width: 600px) {
     /* 3. Touch-Friendly Form Controls */
     .contact-section {
-        padding: 1.5rem 0.5rem;
+        padding: 1.5rem 1rem;
     }
 
     .form-input {
