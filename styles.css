@@ -745,81 +745,96 @@ h3 {
   position: relative;
 }
 
+/*
+ * The fixed/minimum height prevents the page from jumping
+ * when quotes have different lengths.
+ *
+ * Adjust this value if your quotes are generally longer/shorter.
+ */
 .quotes__slides {
   position: relative;
-  min-height: 300px;
-  overflow: hidden;
+  min-height: 360px;
 }
+
+
+/* --------------------------------
+   Slides
+-------------------------------- */
 
 .quotes__slide {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100%;
 
   text-align: center;
 
   opacity: 0;
   visibility: hidden;
-  transform: translateX(30px);
+  transform: translateX(25px);
 
   transition:
-    opacity 0.45s ease,
-    transform 0.45s ease,
-    visibility 0s linear 0.45s;
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    visibility 0s linear 0.4s;
 }
 
 .quotes__slide.is-active {
-  position: relative;
+  position: absolute;
 
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
 
   transition:
-    opacity 0.45s ease,
-    transform 0.45s ease,
+    opacity 0.4s ease,
+    transform 0.4s ease,
     visibility 0s linear 0s;
 }
 
-/* The outgoing slide moves left */
+
+/* Previous / next animation */
+
 .quotes__slide.is-leaving-left {
   opacity: 0;
-  transform: translateX(-30px);
+  transform: translateX(-25px);
 }
 
-/* The outgoing slide moves right */
 .quotes__slide.is-leaving-right {
   opacity: 0;
-  transform: translateX(30px);
+  transform: translateX(25px);
 }
 
-/* The incoming slide starts from the right */
-.quotes__slide.is-entering-right {
-  opacity: 0;
-  transform: translateX(30px);
-}
-
-/* The incoming slide starts from the left */
 .quotes__slide.is-entering-left {
   opacity: 0;
-  transform: translateX(-30px);
+  transform: translateX(-25px);
+}
+
+.quotes__slide.is-entering-right {
+  opacity: 0;
+  transform: translateX(25px);
 }
 
 
-/* Large quotation mark */
+/* --------------------------------
+   Quotation mark
+-------------------------------- */
 
 .quotes__mark {
   display: block;
 
-  font-family: Georgia, serif;
-  font-size: 7rem;
-  line-height: 0.5;
+  height: auto;
+  margin-bottom: 1rem;
 
-  height: 4rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 7rem;
+  line-height: 0.7;
 }
 
 
-/* Quote */
+/* --------------------------------
+   Quote
+-------------------------------- */
 
 .quotes__text {
   max-width: 750px;
@@ -831,7 +846,9 @@ h3 {
 }
 
 
-/* Author */
+/* --------------------------------
+   Author
+-------------------------------- */
 
 .quotes__author {
   display: flex;
@@ -853,7 +870,9 @@ h3 {
 }
 
 
-/* Controls */
+/* --------------------------------
+   Controls
+-------------------------------- */
 
 .quotes__controls {
   display: flex;
@@ -861,23 +880,28 @@ h3 {
   justify-content: center;
   gap: 1.5rem;
 
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 
-/* Arrow buttons */
+/* --------------------------------
+   Arrow buttons
+-------------------------------- */
 
 .quotes__button {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 3rem;
-  height: 3rem;
+  width: 3.25rem;
+  height: 3.25rem;
 
   padding: 0;
-  border: 0;
-  background: transparent;
+
+  border: 1px solid #000;
+  border-radius: 50%;
+
+  background: #fff;
 
   cursor: pointer;
 
@@ -887,13 +911,20 @@ h3 {
 }
 
 .quotes__button:hover {
-  opacity: 0.6;
+  opacity: 0.75;
+}
+
+.quotes__button:active {
+  transform: scale(0.94);
 }
 
 .quote-arrow {
   display: block;
-  width: 100%;
-  height: auto;
+
+  width: 1rem;
+  height: 1rem;
+
+  object-fit: contain;
 }
 
 .quote-arrow--prev {
@@ -901,7 +932,9 @@ h3 {
 }
 
 
-/* Dots */
+/* --------------------------------
+   Dots
+-------------------------------- */
 
 .quotes__dots {
   display: flex;
@@ -914,12 +947,14 @@ h3 {
   height: 8px;
 
   padding: 0;
+
   border: 0;
   border-radius: 50%;
 
   background: currentColor;
 
   opacity: 0.25;
+
   cursor: pointer;
 
   transition:
@@ -933,7 +968,45 @@ h3 {
 }
 
 
-/* Respect reduced-motion preferences */
+/* --------------------------------
+   Mobile
+-------------------------------- */
+
+@media (max-width: 600px) {
+  .quotes {
+    padding: 4rem 1.25rem;
+  }
+
+  .quotes h2 {
+    margin-bottom: 3rem;
+  }
+
+  .quotes__slides {
+    min-height: 400px;
+  }
+
+  .quotes__mark {
+    font-size: 5rem;
+  }
+
+  .quotes__text {
+    font-size: 1.4rem;
+  }
+
+  .quotes__controls {
+    margin-top: 1rem;
+  }
+
+  .quotes__button {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}
+
+
+/* --------------------------------
+   Reduced motion
+-------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
   .quotes__slide {
