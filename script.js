@@ -254,3 +254,49 @@ window.addEventListener("load", () => {
 
   track.style.setProperty("--shift", half);
 });
+
+
+
+
+
+// Quotes Carousel
+
+document.querySelectorAll('[data-quotes-carousel]').forEach((carousel) => {
+  const slides = carousel.querySelectorAll('.quotes__slide');
+  const dots = carousel.querySelectorAll('.quotes__dot');
+  const previousButton = carousel.querySelector('[data-quotes-prev]');
+  const nextButton = carousel.querySelector('[data-quotes-next]');
+
+  if (slides.length <= 1) {
+    carousel.querySelector('.quotes__controls')?.remove();
+    return;
+  }
+
+  let currentIndex = 0;
+
+  function showSlide(index) {
+    currentIndex = (index + slides.length) % slides.length;
+
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('is-active', i === currentIndex);
+    });
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('is-active', i === currentIndex);
+    });
+  }
+
+  previousButton.addEventListener('click', () => {
+    showSlide(currentIndex - 1);
+  });
+
+  nextButton.addEventListener('click', () => {
+    showSlide(currentIndex + 1);
+  });
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      showSlide(Number(dot.dataset.quotesDot));
+    });
+  });
+});

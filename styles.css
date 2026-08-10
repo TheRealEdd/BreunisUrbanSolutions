@@ -107,69 +107,6 @@ h3 {
     display: inline-block;
 }
 
-
-/* INTRO ANIMATIE */
-#intro-modal {
-    position: fixed;
-    inset: 0;
-    background: var(--blue);
-    z-index: 9999;
-    overflow: hidden;
-}
-
-#scene {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-#bus-stop {
-    position: absolute;
-    height: 40vh;
-
-    right: 25vw;
-    bottom: 20vh;
-}
-
-#woman {
-    position: absolute;
-    height: 20vh;
-    opacity: 1;
-
-    right: 60vw;
-    bottom: 20vh;
-}
-
-#bus {
-    position: absolute;
-    z-index: -1;
-    height: 35vh;
-
-    bottom: 20vh;
-    left: -100vw;
-}
-
-#intro-text {
-    position: absolute;
-
-    top: 15vh;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    font-size: 3.6rem;
-    text-align: center;
-    color: white;
-}
-
-.text-line {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    opacity: 0;
-}
-
 /* NAV */
 
 .navbar {
@@ -784,6 +721,112 @@ h3 {
 .about p {
     margin: 0;
     line-height: 1.6;
+}
+
+
+/* QUOTES */
+
+.quotes {
+  padding: 6rem 1.5rem;
+  overflow: hidden;
+}
+
+.quotes__inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.quotes h2 {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.quotes__carousel {
+  position: relative;
+}
+
+.quotes__slides {
+  position: relative;
+}
+
+.quotes__slide {
+  display: none;
+  text-align: center;
+}
+
+.quotes__slide.is-active {
+  display: block;
+}
+
+.quotes__mark {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 7rem;
+  line-height: 0.5;
+  height: 4rem;
+}
+
+.quotes__text {
+  max-width: 750px;
+  margin: 0 auto 2rem;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.quotes__author {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.quotes__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.quotes__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.25rem;
+  transition: opacity 0.2s ease;
+}
+
+.quotes__button:hover {
+  opacity: 0.6;
+}
+
+.quotes__dots {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quotes__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.25;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.quotes__dot.is-active {
+  opacity: 1;
+  transform: scale(1.25);
 }
 
 /* ==========================================================================
