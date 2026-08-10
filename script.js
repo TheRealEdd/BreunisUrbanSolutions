@@ -169,17 +169,75 @@ window.addEventListener("load", () => {
 // Quotes Carousel
 
 document.querySelectorAll('[data-quotes-carousel]').forEach((carousel) => {
+  const slidesContainer = carousel.querySelector('.quotes__slides');
   const slides = carousel.querySelectorAll('.quotes__slide');
   const dots = carousel.querySelectorAll('.quotes__dot');
   const previousButton = carousel.querySelector('[data-quotes-prev]');
   const nextButton = carousel.querySelector('[data-quotes-next]');
 
-  if (slides.length <= 1) {
+  if (!slides.length) {
     return;
   }
 
   let currentIndex = 0;
   let isAnimating = false;
+
+
+  /*
+   * --------------------------------
+   * Automatically determine the height
+   * of the tallest quote.
+   * --------------------------------
+   */
+
+  function setSlidesHeight() {
+    let tallestHeight = 0;
+
+    slides.forEach((slide) => {
+      const height = slide.scrollHeight;
+
+      if (height > tallestHeight) {
+        tallestHeight = height;
+      }
+    });
+
+    slidesContainer.style.height = `${tallestHeight}px`;
+  }
+
+
+  /*
+   * Measure after the page has rendered.
+   * This makes sure fonts have been applied.
+   */
+
+    setSlidesHeight();
+
+    if (document.fonts) {
+    document.fonts.ready.then(setSlidesHeight);
+    }
+
+
+  /*
+   * Recalculate when the browser changes size,
+   * since text wrapping may change.
+   */
+
+  let resizeTimer;
+
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+
+    resizeTimer = setTimeout(() => {
+      setSlidesHeight();
+    }, 100);
+  });
+
+
+  /*
+   * --------------------------------
+   * Change slide
+   * --------------------------------
+   */
 
   function showSlide(newIndex, direction) {
     if (isAnimating || newIndex === currentIndex) {
@@ -191,16 +249,6 @@ document.querySelectorAll('[data-quotes-carousel]').forEach((carousel) => {
     const currentSlide = slides[currentIndex];
     const nextSlide = slides[newIndex];
 
-    /*
-     * Next:
-     * current moves left
-     * new comes in from right
-     *
-     * Previous:
-     * current moves right
-     * new comes in from left
-     */
-
     const enterClass =
       direction === 'next'
         ? 'is-entering-right'
@@ -211,22 +259,35 @@ document.querySelectorAll('[data-quotes-carousel]').forEach((carousel) => {
         ? 'is-leaving-left'
         : 'is-leaving-right';
 
-    // Prepare the incoming slide
+
+    /*
+     * Put the new slide in its starting position.
+     */
+
     nextSlide.classList.add(enterClass);
     nextSlide.classList.add('is-active');
 
-    // Force the browser to register the starting position
+
+    /*
+     * Force the browser to register the
+     * starting position before animating.
+     */
+
     requestAnimationFrame(() => {
       currentSlide.classList.add(leaveClass);
       nextSlide.classList.remove(enterClass);
 
-      dots[currentIndex].classList.remove('is-active');
-      dots[newIndex].classList.add('is-active');
+      dots[currentIndex]?.classList.remove('is-active');
+      dots[newIndex]?.classList.add('is-active');
 
       currentIndex = newIndex;
     });
 
-    // Clean up after the animation
+
+    /*
+     * Clean up after the animation.
+     */
+
     setTimeout(() => {
       slides.forEach((slide, index) => {
         if (index !== currentIndex) {
@@ -244,19 +305,34 @@ document.querySelectorAll('[data-quotes-carousel]').forEach((carousel) => {
     }, 450);
   }
 
-  previousButton.addEventListener('click', () => {
+
+  /*
+   * --------------------------------
+   * Previous / next buttons
+   * --------------------------------
+   */
+
+  previousButton?.addEventListener('click', () => {
     const newIndex =
       (currentIndex - 1 + slides.length) % slides.length;
 
     showSlide(newIndex, 'previous');
   });
 
-  nextButton.addEventListener('click', () => {
+
+  nextButton?.addEventListener('click', () => {
     const newIndex =
       (currentIndex + 1) % slides.length;
 
     showSlide(newIndex, 'next');
   });
+
+
+  /*
+   * --------------------------------
+   * Dots
+   * --------------------------------
+   */
 
   dots.forEach((dot) => {
     dot.addEventListener('click', () => {
