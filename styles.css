@@ -951,6 +951,7 @@ h3 {
 .about p {
     margin: 0;
     line-height: 1.6;
+    max-width: 600px;
 }
 
 
