@@ -55,6 +55,7 @@ body {
     border: 1.5rem solid var(--blue);
     border-style: none solid;
     padding: 1.5rem 0;
+    min-height: 100vh;
 }
 
 h1, h2 {
@@ -1791,5 +1792,92 @@ h3 {
         font-size: 1.5rem;
         margin: 1rem 0;
         width: 100%;
+    }
+}
+
+/* ==========================================================================
+   CONTACT PAGE MOBILE RESPONSIVE OVERRIDES
+   ========================================================================== */
+
+/* --- Tablet / Medium Screens (max-width: 900px) --- */
+@media (max-width: 900px) {
+    /* 1. Stack Intro Section Vertically with Image Above Text */
+    .contact-intro {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .contact-foto {
+        grid-column: 1;
+        grid-row: 1; /* Moves photo above the text */
+        width: 14rem;
+        height: 14rem;
+    }
+
+    .contact-text {
+        grid-column: 1;
+        grid-row: 2; /* Keeps text below the photo */
+    }
+
+    /* 2. Stack Telefoon, E-mail, and LinkedIn Vertically */
+    .contact-options {
+        grid-template-columns: 1fr; /* Single vertical column */
+        gap: 1rem;
+    }
+
+    .contact-option {
+        width: 100%;
+        padding: 1.25rem 1rem;
+        background-color: var(--white);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Center align headers and descriptions */
+    .contact-title,
+    .contact-description {
+        text-align: center;
+    }
+}
+
+/* --- Mobile / Small Screens (max-width: 600px) --- */
+@media (max-width: 600px) {
+    /* 3. Touch-Friendly Form Controls */
+    .contact-section {
+        padding: 1.5rem 0.5rem;
+    }
+
+    .form-input {
+        height: 3.25rem; /* ~52px height for optimal touch targeting */
+        font-size: 1rem; /* Prevents auto-zoom on iOS safari */
+        padding: 0.75rem 1rem;
+    }
+
+    .form-textarea {
+        min-height: 140px;
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .form-label {
+        font-size: 1rem;
+        margin-bottom: 0.35rem;
+    }
+
+    .form-submit,
+    #download-cv {
+        font-size: 1.5rem;
+        padding: 1.25rem 1rem;
+        margin: 1.5rem 0;
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+
+    /* Fluid Typography for Mobile Headlines */
+    .contact-intro h1,
+    .contact-title {
+        font-size: 2rem;
     }
 }
