@@ -13,6 +13,8 @@ collections:
   projects:
     output: true
     permalink: /projecten/:title/
+  quotes:
+    output: false
 
 # Default Layout assignments
 defaults:
