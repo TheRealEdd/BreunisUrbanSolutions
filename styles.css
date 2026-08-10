@@ -753,7 +753,7 @@ h3 {
  */
 .quotes__slides {
   position: relative;
-  min-height: 360px;
+  min-height: 420px;
 }
 
 
@@ -982,7 +982,7 @@ h3 {
   }
 
   .quotes__slides {
-    min-height: 400px;
+    min-height: 460px;
   }
 
   .quotes__mark {
