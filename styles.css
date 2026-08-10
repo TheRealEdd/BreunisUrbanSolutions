@@ -434,36 +434,41 @@ h3 {
 }
 
 
-/* HOME HERO */
+/* ==========================================================================
+   HOME HERO SECTION (BASE / DESKTOP)
+   ========================================================================== */
 
 .hero {
-    padding: 6rem 5% 0;
+    padding: 4rem 5% 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .hero-content {
     text-align: left;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 40% 60%;
-    grid-template-rows: repeat(1, 1fr);
-    gap: 4rem;
+    /* Flexible minmax grid prevents squeezing text or breaking rows */
+    grid-template-columns: minmax(300px, 1fr) minmax(300px, 1.2fr);
+    gap: 3rem;
     align-items: center;
 }
 
 .hero h1 {
-    font-size: clamp(3rem, 4vw, 6rem);
+    font-size: clamp(2.5rem, 5vw, 5.5rem);
     font-family: "Passion One", sans-serif;
     color: var(--charcoal);
     margin-bottom: 1rem;
-    line-height: 1;
+    line-height: 1.05;
+    overflow-wrap: break-word;
 }
 
 .hero h3 {
-    font-size: clamp(2rem, 2vw, 4rem);
+    font-size: clamp(1.5rem, 2.5vw, 3rem);
     color: var(--charcoal);
     margin-bottom: 1rem;
-    line-height: 1;
-    text-align: right;
+    line-height: 1.2;
+    text-align: left; /* Aligns naturally with grid flow */
 }
 
 #hero-text-highlight {
@@ -473,40 +478,47 @@ h3 {
 }
 
 .hero img {
-    max-width: calc(100% - 4rem);
-    max-height: 100%;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    justify-self: center;
 }
 
 /* ROUTE START */
+#route-start {
+    display: grid;
+    grid-template-columns: auto 1fr minmax(300px, 45%);
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 2rem auto 0;
+    gap: 2rem;
+}
+
 #line-start {
     border: solid 0.5rem var(--charcoal);
 }
 
 #line-start a {
-    font-size: 3rem;
-}
-
-
-#route-start {
-    display: grid;
-    grid-template-columns: 1fr auto 45vw;
-    align-items: center;
-    width: 100%;
-    gap: 2rem;
+    font-size: clamp(1.75rem, 3vw, 3rem);
+    margin: 0 auto;
 }
 
 .partners-carousel {
-    width: 45vw;
+    width: 100%;
     text-align: center;
-    margin-left: auto; /* pushes ticker to the right */
+    margin-left: auto;
+    overflow: hidden; /* Constrains ticker width to grid cell */
 }
 
 /* LOGO TICKER */
 .logoTicker {
-    width: 45vw;
+    width: 100%;
+    max-width: 100%;
     overflow: hidden;
     position: relative;
-    padding: 1rem 0; /* Padding on top/bottom, 0 on sides to keep gradients flush */
+    padding: 1rem 0;
 }
 
 #logoTrack {
@@ -517,7 +529,6 @@ h3 {
     animation: tickerScroll var(--ticker-speed) linear infinite;
 }
 
-/* Corrected Animation Loop */
 @keyframes tickerScroll {
     from { 
         transform: translate3d(-50%, 0, 0); 
@@ -531,27 +542,23 @@ h3 {
     height: var(--logo-height);
     width: auto;
     flex-shrink: 0;
-    padding: 0 3rem; /* This replaces a 3rem gap seamlessly */
-    
-    /* Make logos uniform */
+    padding: 0 2rem;
     filter: grayscale(100%);
     opacity: 0.7;
     transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
-/* On hover, bring back original color and full visibility */
 #logoTrack img:hover {
     filter: grayscale(0%);
     opacity: 1;
 }
 
-/* Gradient overlays for the fade effect */
 .logoTicker::before,
 .logoTicker::after {
     content: "";
     position: absolute;
     top: 0;
-    width: 80px;
+    width: 60px;
     height: 100%;
     z-index: 2;
     pointer-events: none;
@@ -565,6 +572,76 @@ h3 {
 .logoTicker::after {
     right: 0;
     background: linear-gradient(to left, var(--cream), transparent);
+}
+
+
+/* ==========================================================================
+   HERO RESPONSIVE OVERRIDES
+   ========================================================================== */
+
+/* --- Tablet / Medium Screens (max-width: 900px) --- */
+@media (max-width: 900px) {
+    .hero {
+        padding: 2rem 5% 1rem;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr; /* Stack text and image */
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero h3 {
+        text-align: center;
+    }
+
+    .hero img {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    #route-start {
+        grid-template-columns: 1fr; /* Stack button and partners vertically */
+        justify-items: center;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .partners-carousel {
+        width: 100%;
+    }
+}
+
+/* --- Mobile / Small Screens (max-width: 600px) --- */
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: clamp(2rem, 8vw, 3.25rem);
+    }
+
+    .hero h3 {
+        font-size: clamp(1.25rem, 5vw, 2rem);
+    }
+
+    .hero img {
+        max-width: 100%;
+    }
+
+    #line-start {
+        width: 100%;
+        text-align: center;
+    }
+
+    #line-start a {
+        width: 100%;
+        justify-content: center;
+        font-size: 1.75rem;
+    }
+
+    /* Scaling ticker logos down slightly for phone screens */
+    #logoTrack img {
+        height: calc(var(--logo-height) * 0.75);
+        padding: 0 1.25rem;
+    }
 }
 
 
