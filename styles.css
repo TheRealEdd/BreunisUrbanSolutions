@@ -435,54 +435,105 @@ h3 {
 
 
 /* ==========================================================================
-   HOME HERO SECTION (BASE / DESKTOP)
+   HERO SECTION (BALANCED 40/60 GRID)
    ========================================================================== */
 
 .hero {
-    padding: 4rem 5% 2rem;
+    padding: 3rem 5% 2rem;
     max-width: 1400px;
     margin: 0 auto;
 }
 
 .hero-content {
-    text-align: left;
-    margin: 0 auto;
     display: grid;
-    /* Flexible minmax grid prevents squeezing text or breaking rows */
-    grid-template-columns: minmax(300px, 1fr) minmax(300px, 1.2fr);
+    /* 40% left column for text, 60% right column for image */
+    grid-template-columns: 40% 60%;
     gap: 3rem;
-    align-items: center;
+    /* Forces both grid cells to span the exact same height */
+    align-items: stretch; 
 }
 
-.hero h1 {
-    font-size: clamp(2.5rem, 5vw, 5.5rem);
+/* LEFT COLUMN: TEXT BLOCK */
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.hero-line-1 {
     font-family: "Passion One", sans-serif;
     color: var(--charcoal);
-    margin-bottom: 1rem;
-    line-height: 1.05;
-    overflow-wrap: break-word;
+    font-size: clamp(1.75rem, 3.5vw, 3.5rem);
+    line-height: 1.1;
 }
 
-.hero h3 {
-    font-size: clamp(1.5rem, 2.5vw, 3rem);
-    color: var(--charcoal);
-    margin-bottom: 1rem;
-    line-height: 1.2;
-    text-align: left; /* Aligns naturally with grid flow */
-}
-
-#hero-text-highlight {
-    color: var(--blue);
+.hero-line-2 {
     font-family: "Cooper Black", serif;
+    color: var(--blue);
+    font-size: clamp(2.25rem, 4.5vw, 4.75rem);
+    line-height: 1.05;
+    margin: 0.5rem 0;
+}
+
+.hero-line-3 {
+    font-family: "Passion One", sans-serif;
+    color: var(--charcoal);
+    font-size: clamp(1.25rem, 2.2vw, 2.25rem);
     line-height: 1.2;
 }
 
-.hero img {
+/* RIGHT COLUMN: EQUAL-HEIGHT IMAGE CONTAINER */
+.hero-image-container {
     width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    justify-self: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image-container img {
+    width: 100%;
+    height: 100%;
+    /* Ensures image fills the vertical height of the text block without distorting */
+    object-fit: cover; 
+    border-radius: 1.5rem;
+}
+
+
+/* ==========================================================================
+   MOBILE RESPONSIVE FALLBACK
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    .hero-content {
+        grid-template-columns: 1fr; /* Stacks vertically on tablet/mobile */
+        gap: 2rem;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .hero-line-1 {
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+    }
+
+    .hero-line-2 {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+    }
+
+    .hero-line-3 {
+        font-size: clamp(1.1rem, 4vw, 1.75rem);
+    }
+
+    .hero-image-container {
+        max-height: 400px;
+    }
+
+    .hero-image-container img {
+        object-fit: contain; /* Prevents heavy cropping when stacked vertically */
+    }
 }
 
 /* ROUTE START */
