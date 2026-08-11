@@ -2170,7 +2170,7 @@ h3 {
     .project {
         grid-template-columns: 1fr;
         gap: 2.5rem;
-        margin: 2rem 0;
+        margin: 2rem 0 6rem;
     }
 
     .project-image-container {
