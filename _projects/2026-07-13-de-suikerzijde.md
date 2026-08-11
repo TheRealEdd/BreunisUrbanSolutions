@@ -1,7 +1,7 @@
 ---
 company: De Suikerzijde
 logo: /media/blog/desuikerzijde logo.jpeg
-role: VERVANG LATER
+role: Junior projectleider mobiliteit en gebiedsontwikkeling
 from-date: 2024-10-13
 tags:
   - Duurzame Stad
