@@ -2199,6 +2199,7 @@ h3 {
 
     /* About Section */
     .about {
+        display: grid;
         grid-template-columns: 1fr;
         gap: 2rem;
         padding: 4rem 5%;
