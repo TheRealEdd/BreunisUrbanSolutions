@@ -701,6 +701,7 @@ h3 {
 
 .projects {
     position: relative;
+    isolation: isolate;
     padding: 2rem 8%;
     max-width: 1500px;
     margin: auto;
@@ -712,7 +713,7 @@ h3 {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: -5;
+    z-index: 0;
     overflow: visible;
 }
 
