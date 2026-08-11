@@ -1022,7 +1022,7 @@ h3 {
     object-fit: cover;
     border-radius: 50%;
     border: 5px solid var(--white);
-    filter: drop-shadow(-2rem 2rem 0px var(--white));
+    filter: drop-shadow(-1rem 1rem 0px var(--white));
 }
 
 /* 2. TEXT CONTAINER (Holds the H2 and the Bubble) */
