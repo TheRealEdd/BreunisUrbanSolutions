@@ -808,8 +808,6 @@ h3 {
     /* If you need overflow:hidden for internal images, consider putting */
     /* the drop-shadow on a parent wrapper div instead. */
     overflow: hidden; 
-    
-    transform: translateY(3rem);
 
     /* 1. Define a default shadow direction variable */
     --shadow-x: 2rem; 
@@ -878,6 +876,113 @@ h3 {
     margin-bottom: 1rem;
 }
 
+@media (max-width: 768px) {
+
+    .projects {
+        padding: 2rem 0;
+        width: 100%;
+    }
+
+    /*
+     * Every article becomes a single vertical column.
+     * The route itself occupies the left-hand gutter.
+     */
+    .project {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        width: 100%;
+        max-width: none;
+
+        gap: 2rem;
+        margin: 4rem 0;
+
+        padding-left: 4.5rem;
+        padding-right: 1.5rem;
+
+        position: relative;
+    }
+
+    /*
+     * The DOM order differs between the desktop articles:
+     *
+     * article 1: content -> image
+     * article 2: image -> content
+     * article 3: content -> image
+     *
+     * On mobile we always want:
+     *
+     * content -> image
+     */
+    .project-content {
+        order: 1;
+        margin: 0;
+        width: 100%;
+    }
+
+    .project-image-container,
+    .project-right .project-image-container,
+    .project-image-container.left {
+        order: 2;
+
+        width: min(100%, 400px);
+        height: auto;
+        aspect-ratio: 1 / 1;
+
+        margin: 0 auto;
+
+        /*
+         * All cards cast their shadow in the same direction.
+         */
+        --shadow-x: 2rem;
+
+        transform: none;
+    }
+
+    /*
+     * All route anchors occupy the same left-hand track.
+     */
+    .project .route-anchor {
+        position: absolute;
+
+        left: 1.5rem;
+        right: auto;
+
+        top: 0;
+
+        width: 0;
+        height: 0;
+
+        transform: none;
+    }
+
+    /*
+     * Remove the desktop-specific right/left positioning.
+     */
+    .project-left .route-anchor,
+    .project-right .route-anchor,
+    .project-image .route-anchor {
+        left: 1.5rem;
+        right: auto;
+    }
+
+    /*
+     * The second article currently has extra desktop padding.
+     */
+    .project-right {
+        margin-right: 0;
+        padding-left: 4.5rem;
+        padding-right: 1.5rem;
+    }
+
+    /*
+     * Don't let the desktop shadow direction leak into mobile.
+     */
+    .project-image-container.left {
+        --shadow-x: 2rem;
+    }
+}
 
 /* ABOUT SECTION */
 /* ABOUT SECTION */
