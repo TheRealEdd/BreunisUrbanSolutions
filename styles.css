@@ -935,6 +935,8 @@ h3 {
         --shadow-x: 2rem;
 
         transform: none;
+        
+        filter: none;
     }
 
     .project-image-background {
@@ -987,6 +989,10 @@ h3 {
      */
     .project-image-container.left {
         --shadow-x: 2rem;
+    }
+
+    circle {
+        transform: translateY(18px);
     }
 }
 
