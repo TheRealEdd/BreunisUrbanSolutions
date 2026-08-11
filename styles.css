@@ -677,7 +677,7 @@ h3 {
     }
 
     #line-start {
-        width: 100%;
+        width: 65%;
         text-align: center;
     }
 
@@ -2102,7 +2102,6 @@ h3 {
     }
 
     .project-right {
-        padding: 0;
         background: transparent;
     }
 
