@@ -1,7 +1,7 @@
 ---
 company: Bouwe Foar Fryslân
 logo: /media/blog/thumbnail_Logo-UKK (1).webp
-role: VERVANG LATER
+role: Projectleider
 from-date: 2025-11-13
 tags:
   - Duurzame Stad

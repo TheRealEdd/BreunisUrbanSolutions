@@ -1,7 +1,7 @@
 ---
 company: Coöperatie Eekerpolder
 logo: /media/blog/Logo-Eekerpolder.svg
-role: VERVANG LATER
+role: Projectmanager
 from-date: 2023-04-13
 to-date: 2025-03-13
 tags:
