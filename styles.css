@@ -994,6 +994,8 @@ h3 {
     circle {
         transform: translateY(18px);
     }
+
+
 }
 
 /* ABOUT SECTION */
@@ -2445,4 +2447,14 @@ h3 {
     .contact-title {
         font-size: 2rem;
     }
+
+    .about {
+    background: var(--blue);
+    padding: 6rem 8%;
+    display: grid;
+    /* Grid keeps the image on the left, and the text container on the right */
+    grid-template-columns: 300px 1fr;
+    gap: 4rem;
+    align-items: center;
+}
 }
