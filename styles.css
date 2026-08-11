@@ -725,7 +725,7 @@ h3 {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
-    margin: 4rem 0;
+    margin: 4rem 0 6rem;
 }
 
 #line-stop-4 {
