@@ -2452,9 +2452,8 @@ h3 {
     .about {
     background: var(--blue);
     padding: 6rem 8%;
-    display: grid;
-    /* Grid keeps the image on the left, and the text container on the right */
-    grid-template-columns: 300px 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 4rem;
     align-items: center;
 }
