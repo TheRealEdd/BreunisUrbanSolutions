@@ -446,11 +446,7 @@ h3 {
 
 .hero-content {
     display: grid;
-
-    /* Important: fr units account for the gap */
     grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
-
-    gap: clamp(1.5rem, 3vw, 4rem);
     align-items: center;
 }
 
@@ -490,7 +486,7 @@ h3 {
     font-family: "Cooper Black", serif;
     color: var(--blue);
 
-    font-size: clamp(2rem, 4.2cqw, 4.75rem);
+    font-size: clamp(2rem, 4.7cqw, 4.75rem);
     line-height: 1.05;
 
     margin: 0.5rem 0;
