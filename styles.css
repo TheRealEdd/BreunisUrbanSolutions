@@ -438,65 +438,103 @@ h3 {
    ========================================================================== */
 
 .hero {
-    padding: 3rem 5% 2rem;
-    max-width: 1400px;
+    width: min(90%, 1400px);
     margin: 0 auto;
+    padding: 3rem 0 2rem;
+    container-type: inline-size;
 }
 
 .hero-content {
     display: grid;
-    /* 40% left column for text, 60% right column for image */
-    grid-template-columns: 40% 60%;
-    gap: 3rem;
-    /* Forces both grid cells to span the exact same height */
-    align-items: stretch; 
+
+    /* Important: fr units account for the gap */
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+
+    gap: clamp(1.5rem, 3vw, 4rem);
+    align-items: center;
 }
 
-/* LEFT COLUMN: TEXT BLOCK */
+/* ==========================================================================
+   LEFT COLUMN
+   ========================================================================== */
+
 .hero-text {
+    min-width: 0;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
+
     text-align: left;
+}
+
+/* Prevent unwanted breaking */
+.hero-line-1,
+.hero-line-3 {
+    white-space: nowrap;
 }
 
 .hero-line-1 {
     font-family: "Passion One", sans-serif;
     color: var(--charcoal);
-    font-size: clamp(1.75rem, 3.5vw, 3.5rem);
+
+    /*
+     * Scales with the available layout,
+     * but has sensible minimum/maximum limits.
+     */
+    font-size: clamp(1.5rem, 3cqw, 3.5rem);
     line-height: 1.1;
 }
 
 .hero-line-2 {
     font-family: "Cooper Black", serif;
     color: var(--blue);
-    font-size: clamp(2.25rem, 4.5vw, 4.75rem);
+
+    font-size: clamp(2rem, 4.2cqw, 4.75rem);
     line-height: 1.05;
+
     margin: 0.5rem 0;
+
+    /*
+     * You control the line break with <br>,
+     * so prevent any additional wrapping.
+     */
+    white-space: nowrap;
 }
 
 .hero-line-3 {
     font-family: "Passion One", sans-serif;
     color: var(--charcoal);
-    font-size: clamp(1.25rem, 2.2vw, 2.25rem);
+
+    font-size: clamp(1.1rem, 2cqw, 2.25rem);
     line-height: 1.2;
 }
 
-/* RIGHT COLUMN: EQUAL-HEIGHT IMAGE CONTAINER */
+
+/* ==========================================================================
+   RIGHT COLUMN
+   ========================================================================== */
+
 .hero-image-container {
+    min-width: 0;
     width: 100%;
-    height: 100%;
+
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .hero-image-container img {
+    display: block;
+
     width: 100%;
-    height: 100%;
-    /* Ensures image fills the vertical height of the text block without distorting */
-    object-fit: cover; 
-    border-radius: 1.5rem;
+    height: auto;
+
+    /*
+     * For an illustration/SVG, contain is usually safer than cover.
+     * It preserves the entire illustration.
+     */
+    object-fit: contain;
 }
 
 
@@ -505,6 +543,10 @@ h3 {
    ========================================================================== */
 
 @media (max-width: 900px) {
+    .hero {
+        width: 90%;
+    }
+
     .hero-content {
         grid-template-columns: 1fr; /* Stacks vertically on tablet/mobile */
         gap: 2rem;
@@ -512,6 +554,7 @@ h3 {
 
     .hero-text {
         text-align: center;
+        align-items: center;
     }
 
     .hero-line-1 {
@@ -531,6 +574,7 @@ h3 {
     }
 
     .hero-image-container img {
+        max-height: 400px;
         object-fit: contain; /* Prevents heavy cropping when stacked vertically */
     }
 }
