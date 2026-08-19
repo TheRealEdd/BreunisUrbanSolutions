@@ -3,7 +3,7 @@ company: Bureau PAU
 logo: /media/blog/logo pau.gif
 role: Assistent-projectleider en kwartiermaker
 from-date: 2024-12-01
-to-date: 2025-10-01
+to-date: 2025-11-01
 tags:
   - Duurzame Stad
 summary: Als assistent-projectleider en kwartiermaker ondersteunde ik Bureau PAU
