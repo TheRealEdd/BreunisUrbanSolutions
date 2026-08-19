@@ -2,7 +2,7 @@
 company: De Suikerzijde
 logo: /media/blog/desuikerzijde logo.jpeg
 role: Junior projectleider mobiliteit en gebiedsontwikkeling
-from-date: 2024-10-13
+from-date: 2024-10-01
 tags:
   - Duurzame Stad
 summary: Als junior projectleider mobiliteit en gebiedsontwikkeling zal ik De
