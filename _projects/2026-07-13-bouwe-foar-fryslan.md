@@ -2,7 +2,7 @@
 company: Bouwe Foar Fryslân
 logo: /media/blog/thumbnail_Logo-UKK (1).webp
 role: Projectleider
-from-date: 2025-11-13
+from-date: 2025-11-01
 tags:
   - Duurzame Stad
 summary: "Binnen Bouwe Foar Fryslân (kleine kernen aanpak) draag ik bij aan het
