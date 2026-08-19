@@ -2,8 +2,7 @@
 company: Coöperatie Eekerpolder
 logo: /media/blog/Logo-Eekerpolder.svg
 role: Projectmanager
-from-date: 2023-04-13
-to-date: 2025-03-13
+from-date: 2023-04-01
 tags:
   - Water
   - Energie en Mobiliteit
