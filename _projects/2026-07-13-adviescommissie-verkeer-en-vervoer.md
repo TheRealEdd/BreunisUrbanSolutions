@@ -2,7 +2,7 @@
 company: Adviescommissie Mobiliteit
 logo: /media/blog/gemeente groningen logo.jpg
 role: Voorzitter
-from-date: 2025-06-13
+from-date: 2025-06-01
 tags:
   - Duurzame Stad
   - Energie en Mobiliteit
