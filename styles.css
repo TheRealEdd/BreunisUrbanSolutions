@@ -2497,13 +2497,20 @@ h3 {
     align-items: center;
 }
 }
-
+.bedankt-container {
+    display: flex;
+    flex-direction: column;
+    margin: 30vh auto;
+}
 .bedankt {
-    margin-top: 40vh;
     text-align: center;
 }
 
 .bedankt-subtitle {
-    margin-bottom: 40vh;
     text-align: center;
+}
+
+.bedankt-btn {
+    padding: 0 20px;
+    margin: 20px auto;
 }
