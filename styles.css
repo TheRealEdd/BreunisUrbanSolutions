@@ -2497,3 +2497,13 @@ h3 {
     align-items: center;
 }
 }
+
+.bedankt {
+    margin-top: 40vh;
+    text-align: center;
+}
+
+.bedankt-subtitle {
+    margin-bottom: 40vh;
+    text-align: center;
+}
