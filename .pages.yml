@@ -126,3 +126,17 @@ content:
         options:
           media: cv
           extensions: ["pdf"]
+      - name: av_file
+        label: Algemene Voorwaarden (Alleen PDF)
+        type: file
+        required: false
+        options:
+          media: cv
+          extensions: ["pdf"]
+      - name: pv_file
+        label: Privacy Verklaring (Alleen PDF)
+        type: file
+        required: false
+        options:
+          media: cv
+          extensions: ["pdf"]
