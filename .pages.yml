@@ -114,7 +114,7 @@ content:
 
 
   - name: cv_singleton
-    label: Huidige CV
+    label: Documenten
     type: file
     path: _cv/cv.md
     format: yaml-frontmatter
