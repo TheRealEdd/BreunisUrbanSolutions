@@ -50,6 +50,26 @@
           <div class="col-content">
             <p>KVK: 89591712</p>
             <p>BTW-id: NL004745628B73</p>
+
+            {% assign documents = site.cv | first %}
+
+            {% if documents and documents.av_file %}
+                <p>
+                    <a href="{{ documents.av_file | prepend: site.baseurl }}" target="_blank">
+                        Algemene Voorwaarden
+                    </a>
+                </p>
+            {% endif %}
+
+            {% if documents and documents.pv_file %}
+                <p>
+                    <a href="{{ documents.pv_file | prepend: site.baseurl }}" target="_blank">
+                        Privacyverklaring
+                    </a>
+                </p>
+            {% endif %}
+
+
           </div>
           <div class="col-bottom">
             <p>© {{ site.name }} 2026</p>
