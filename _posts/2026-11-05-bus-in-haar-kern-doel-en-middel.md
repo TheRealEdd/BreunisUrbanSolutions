@@ -20,7 +20,7 @@ Voordat ik Burgerreservist werd, deed ik ook mee aan MDT Missie. Dat is een traj
 
 **Waarom ik BUS begon**
 
-Dat brengt me bij de kern. Ik wil iets toevoegen, en niet alleen voor mezelf, maar ook voor de wereld om me heen. Dat klinkt groot, dus ik maak het klein: in elk contact en bij elke klus probeer ik iets goeds achter te laten. Dat is mijn doel. Het middel, hoe ik daar het beste kom, zoek ik nog uit. Ik onderzoek het al doende en bij elke nieuwe klus leer ik daar meer over waar ik het meest kan bijdragen, en soms ook over waar niet. Daarom vind ik het fijn om verschillende dingen te doen.
+Dat brengt me bij de kern. Ik wil iets toevoegen, en niet alleen voor mezelf, maar ook voor de wereld om me heen. Dat klinkt groot, dus ik maak het klein: in elk contact en bij elke klus probeer ik iets goeds achter te laten. Dat is mijn doel. Het middel, hoe ik daar het beste kom, zoek ik nog uit. Ik onderzoek het al doende en bij elke nieuwe klus leer ik meer over waar ik het meest kan bijdragen, en soms ook over waar niet. Daarom vind ik het fijn om verschillende dingen te doen.
 
 Ik merk dat ik het liefst met bewoners werk. Dat voel ik bij Bouwe Foar Fryslân, en nu weer bij mijn nieuwe klus in Appingedam. Daar schrijven we, onder Nij Begun, wijkvisies voor leefbaarheid. Zo’n visie wordt pas echt goed als de mensen die er wonen er zelf aan meeschrijven. Ik zit dus graag aan tafel met de mensen om wie het gaat, om te luisteren, door te vragen en mee te nemen wat ik hoor. Hun energie is de drijfveer voor mijn werk. Voor mij is dat een van de belangrijkste middelen.
 
